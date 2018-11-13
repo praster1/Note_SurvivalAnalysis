@@ -1,0 +1,1 @@
+# https://wikivisually.com/wiki/Raised_cosine_distribution

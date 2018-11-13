@@ -1,0 +1,1 @@
+# https://rdrr.io/cran/shotGroups/man/maxwell.html

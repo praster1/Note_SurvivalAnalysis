@@ -1,0 +1,2 @@
+# https://stackoverflow.com/questions/23259395/what-function-implements-density-quantile-functions-for-the-raised-cosine-dist
+# https://www.rdocumentation.org/packages/stylo/versions/0.6.8/topics/dist.cosine

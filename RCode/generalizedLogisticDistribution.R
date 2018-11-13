@@ -1,0 +1,1 @@
+# http://ugrad.stat.ubc.ca/R/library/rmutil/html/GLogis.html

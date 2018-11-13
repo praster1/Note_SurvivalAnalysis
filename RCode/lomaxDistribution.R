@@ -1,0 +1,1 @@
+# https://www.rdocumentation.org/packages/VGAM/versions/0.7-7/topics/Lomax

@@ -1,0 +1,1 @@
+# https://www.rdocumentation.org/packages/actuar/versions/2.3-1/topics/Loggamma

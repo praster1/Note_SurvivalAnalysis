@@ -1,0 +1,1 @@
+# http://ugrad.stat.ubc.ca/R/library/statmod/html/invgauss.html

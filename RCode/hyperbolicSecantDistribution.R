@@ -1,0 +1,1 @@
+# https://www.rdocumentation.org/packages/VaRES/versions/1.0/topics/secant
