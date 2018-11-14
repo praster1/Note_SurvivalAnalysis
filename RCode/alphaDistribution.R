@@ -1,41 +1,130 @@
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+source("colorPalette.R")
+
+
 ##### Alpha Distribution
 ### parameter
 alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 101)
-
-color = rainbow(10)
-par(mfrow = c(2, 2))
+x <- seq(0, 10, length.out = 1000)
 
 
-##### 알파 분포
+##### 수명 분포
 dalpha = function(x, alpha = 1, beta = 0, log = FALSE) 
 {
-    fx <- (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
     
-    if (log) 
-        return(log(fx))
-    else return(fx)
+    fx <- (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
+    if (log)          {        fx <- log(fx);     }
+    
+    return(fx)
 }
 
 
-## 누적분포함수
-palpha = function (q, alpha = 1, beta = 0, lower.tail = TRUE, log.p = FALSE) 
+##### 누적분포함수
+palpha = function (x, alpha = 1, beta = 0, log = FALSE) 
 {
-    Fx <- pnorm(alpha - beta/q) / pnorm(alpha)
-    if (!lower.tail) 
-        Fx <- 1 - Fx
-    if (log.p) 
-        Fx <- log(Fx)
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    
+    Fx <- pnorm(alpha - beta/x) / pnorm(alpha)
+    if (log)          {        Fx <- log(Fx);     }
     return(Fx)
 }
-X
+
+
+##### 생존함수
+salpha = function (x, alpha = 1, beta = 0, log = FALSE) 
+{
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    
+    Fx <- 1 - (pnorm(alpha - beta/x) / pnorm(alpha))
+    if (log)          {        Fx <- log(Fx);     }
+    
+    return(Fx)
+}
 
 
 
-### Life Distribution
-plot(x, dalpha(x, alpha[1], beta[1]), xlim=c(0, 10), ylim=c(0, 3), col=color[1], lwd=2, type = 'l', main="Life Distribution")
-for (i in 2:5)	{	lines(x, dalpha(x, alpha[i], beta[i]), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('lambda = 0.5', 'lambda = 1', 'lambda = 2', 'lambda = 4', 'lambda = 8'))
+##### 위험함수
+halpha = function (x, alpha = 1, beta = 0, log = FALSE) 
+{
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    
+    Fx <- dalpha(x, alpha, beta, log) / palpha(x, alpha, beta, log)
+    if (log)          {        Fx <- log(Fx);     }
+        
+    return(Fx)
+}
+
+
+
+##### Plot
+par(mfrow = c(3, 3))
+
+plot.alpha_seq = function(x, alpha = 1, beta = 0, log = FALSE, xlim=c(0, 10), ylim=c(0, 5), func="dalpha")
+{
+    color=colorPalette(300)
+
+    len_alpha = length(alpha)       # alpha 파라메터의 길이
+    len_beta = length(beta)          # beta 파라메터의 길이
+    
+    color_counter = 1
+    for (i in 1:len_alpha)  ### 파라메터: alpha
+    {
+        color_counter_init = color_counter
+        legend_name = NULL;
+        
+        if (func=="dalpha")     # 수명분포
+        {
+            plot(x, dalpha(x, alpha=alpha[1], beta=beta[1], log=log), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Life Distribution Function")
+            for (j in 1:len_beta)   ### 파라메터: beta
+            {
+                lines(x, dalpha(x, alpha=alpha[i], beta=beta[j], log=log), col=color[color_counter], lwd=2);
+                color_counter = color_counter + 1;
+                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+            }
+        }
+        else if (func == "palpha")  # 누적분포함수
+        {
+            plot(x, palpha(x, alpha=alpha[1], beta=beta[1], log=log), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Cumulative Distribution Function")
+            for (j in 1:len_beta)   ### 파라메터: beta
+            {
+                lines(x, palpha(x, alpha=alpha[i], beta=beta[j], log=log), col=color[color_counter], lwd=2);
+                color_counter = color_counter + 1;
+                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+            }
+        }
+        else if (func == "salpha")  # 생존함수
+        {
+            plot(x, salpha(x, alpha=alpha[1], beta=beta[1], log=log), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Survival Function")
+            for (j in 1:len_beta)   ### 파라메터: beta
+            {
+                lines(x, salpha(x, alpha=alpha[i], beta=beta[j], log=log), col=color[color_counter], lwd=2);
+                color_counter = color_counter + 1;
+                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+            }
+        }
+        else if (func == "halpha")  # 위험함수
+        {
+            plot(x, halpha(x, alpha=alpha[1], beta=beta[1], log=log), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Hazard Function")
+            for (j in 1:len_beta)   ### 파라메터: beta
+            {
+                lines(x, halpha(x, alpha=alpha[i], beta=beta[j], log=log), col=color[color_counter], lwd=2);
+                color_counter = color_counter + 1;
+                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+            }
+        }
+        legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
+    }
+}
+
+plot.alpha_seq(x, alpha, beta)
+plot.alpha_seq(x, alpha, beta, ylim=c(0, 1), func="palpha")
+plot.alpha_seq(x, alpha, beta, ylim=c(0, 1), func="salpha")
+plot.alpha_seq(x, alpha, beta, ylim=c(0, 5), func="halpha")
