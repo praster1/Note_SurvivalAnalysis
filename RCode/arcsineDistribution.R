@@ -2,7 +2,7 @@ setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
 source("colorPalette.R")
 
 
-##### Alpha Distribution
+##### Arcsine Distribution
 ### parameter
 alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
@@ -63,8 +63,6 @@ harcsine = function (x, alpha = 1, beta = 0)
 
 
 ##### Plot
-par(mfrow = c(3, 3))
-
 plot.arcsine_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), func="darcsine")
 {
     color=colorPalette(300)
@@ -122,7 +120,14 @@ plot.arcsine_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5),
     }
 }
 
+par(mfrow = c(3, 3))
 plot.arcsine_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 5), func="darcsine")
+
+par(mfrow = c(3, 3))
 plot.arcsine_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="parcsine")
+
+par(mfrow = c(3, 3))
 plot.arcsine_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="sarcsine")
-plot.arcsine_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 5), func="harcsine")
+
+par(mfrow = c(3, 3))
+plot.arcsine_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 10), func="harcsine")

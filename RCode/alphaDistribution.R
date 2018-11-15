@@ -59,8 +59,6 @@ halpha = function (x, alpha = 1, beta = 0)
 
 
 ##### Plot
-par(mfrow = c(3, 3))
-
 plot.alpha_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), func="dalpha")
 {
     color=colorPalette(300)
@@ -118,7 +116,14 @@ plot.alpha_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), f
     }
 }
 
+par(mfrow = c(3, 3))
 plot.alpha_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 5), func="dalpha")
+
+par(mfrow = c(3, 3))
 plot.alpha_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="palpha")
+
+par(mfrow = c(3, 3))
 plot.alpha_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="salpha")
+
+par(mfrow = c(3, 3))
 plot.alpha_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 6), func="halpha")
