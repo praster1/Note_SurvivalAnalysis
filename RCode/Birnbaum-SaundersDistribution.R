@@ -1,5 +1,6 @@
 setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
 source("colorPalette.R")
+require(extraDistr)
 
 
 ##### Beta Distribution
