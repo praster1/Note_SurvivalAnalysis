@@ -67,7 +67,7 @@ plot.cauchy_seq = function(x, location = 1, scale = 0, xlim=c(0, 10), ylim=c(0, 
             {
                 lines(x, dcauchy(x, location=location[i], scale=scale[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("location = ", i, " / scale = ", j, sep=""))
+                legend_name = c(legend_name, paste("location = ", location[i], " / scale = ", scale[j], sep=""))
             }
         }
         else if (func == "pcauchy")  # 누적분포함수
@@ -77,7 +77,7 @@ plot.cauchy_seq = function(x, location = 1, scale = 0, xlim=c(0, 10), ylim=c(0, 
             {
                 lines(x, pcauchy(x, location=location[i], scale=scale[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("location = ", i, " / scale = ", j, sep=""))
+                legend_name = c(legend_name, paste("location = ", location[i], " / scale = ", scale[j], sep=""))
             }
         }
         else if (func == "scauchy")  # 생존함수
@@ -87,7 +87,7 @@ plot.cauchy_seq = function(x, location = 1, scale = 0, xlim=c(0, 10), ylim=c(0, 
             {
                 lines(x, scauchy(x, location=location[i], scale=scale[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("location = ", i, " / scale = ", j, sep=""))
+                legend_name = c(legend_name, paste("location = ", location[i], " / scale = ", scale[j], sep=""))
             }
         }
         else if (func == "hcauchy")  # 위험함수
@@ -97,7 +97,7 @@ plot.cauchy_seq = function(x, location = 1, scale = 0, xlim=c(0, 10), ylim=c(0, 
             {
                 lines(x, hcauchy(x, location=location[i], scale=scale[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("location = ", i, " / scale = ", j, sep=""))
+                legend_name = c(legend_name, paste("location = ", location[i], " / scale = ", scale[j], sep=""))
             }
         }
         legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)

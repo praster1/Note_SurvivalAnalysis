@@ -65,7 +65,7 @@ plot.exponential_seq = function(x, lambda = 1, xlim=c(0, 10), ylim=c(0, 5), func
         {
             lines(x, dexponential(x, lambda=lambda[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("lambda = ", i, sep=""))
+            legend_name = c(legend_name, paste("lambda = ", lambda[i], sep=""))
         }
     }
     else if (func == "pexponential")  # 누적분포함수
@@ -75,7 +75,7 @@ plot.exponential_seq = function(x, lambda = 1, xlim=c(0, 10), ylim=c(0, 5), func
         {
             lines(x, pexponential(x, lambda=lambda[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("lambda = ", i, sep=""))
+            legend_name = c(legend_name, paste("lambda = ", lambda[i], sep=""))
         }
     }
     else if (func == "sexponential")  # 생존함수
@@ -85,7 +85,7 @@ plot.exponential_seq = function(x, lambda = 1, xlim=c(0, 10), ylim=c(0, 5), func
         {
             lines(x, sexponential(x, lambda=lambda[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("lambda = ", i, sep=""))
+            legend_name = c(legend_name, paste("lambda = ", lambda[i], sep=""))
         }
     }
     else if (func == "hexponential")  # 위험함수
@@ -95,7 +95,7 @@ plot.exponential_seq = function(x, lambda = 1, xlim=c(0, 10), ylim=c(0, 5), func
         {
             lines(x, hexponential(x, lambda=lambda[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("lambda = ", i, sep=""))
+            legend_name = c(legend_name, paste("lambda = ", lambda[i], sep=""))
         }
     }
     legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)

@@ -68,7 +68,7 @@ plot.burr_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), fu
             {
                 lines(x, dburr(x, a=alpha[i], k=beta[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+                legend_name = c(legend_name, paste("alpha = ", alpha[i], " / beta = ", beta[j], sep=""))
             }
         }
         else if (func == "pburr")  # 누적분포함수
@@ -78,7 +78,7 @@ plot.burr_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), fu
             {
                 lines(x, pburr(x, a=alpha[i], k=beta[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+                legend_name = c(legend_name, paste("alpha = ", alpha[i], " / beta = ", beta[j], sep=""))
             }
         }
         else if (func == "sburr")  # 생존함수
@@ -88,7 +88,7 @@ plot.burr_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), fu
             {
                 lines(x, sburr(x, a=alpha[i], k=beta[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+                legend_name = c(legend_name, paste("alpha = ", alpha[i], " / beta = ", beta[j], sep=""))
             }
         }
         else if (func == "hburr")  # 위험함수
@@ -98,7 +98,7 @@ plot.burr_seq = function(x, alpha = 1, beta = 0, xlim=c(0, 10), ylim=c(0, 5), fu
             {
                 lines(x, hburr(x, a=alpha[i], k=beta[j]), col=color[color_counter], lwd=2);
                 color_counter = color_counter + 1;
-                legend_name = c(legend_name, paste("alpha = ", i, " / beta = ", j, sep=""))
+                legend_name = c(legend_name, paste("alpha = ", alpha[i], " / beta = ", beta[j], sep=""))
             }
         }
         legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)

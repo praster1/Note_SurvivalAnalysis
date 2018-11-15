@@ -65,7 +65,7 @@ plot.chisq_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchisq")
         {
             lines(x, dchisq(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "pchisq")  # 누적분포함수
@@ -75,7 +75,7 @@ plot.chisq_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchisq")
         {
             lines(x, pchisq(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "schisq")  # 생존함수
@@ -85,7 +85,7 @@ plot.chisq_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchisq")
         {
             lines(x, schisq(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "hchisq")  # 위험함수
@@ -95,7 +95,7 @@ plot.chisq_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchisq")
         {
             lines(x, hchisq(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)

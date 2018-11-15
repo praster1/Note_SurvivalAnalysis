@@ -65,7 +65,7 @@ plot.chi_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchi")
         {
             lines(x, dchi(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "pchi")  # 누적분포함수
@@ -75,7 +75,7 @@ plot.chi_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchi")
         {
             lines(x, pchi(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "schi")  # 생존함수
@@ -85,7 +85,7 @@ plot.chi_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchi")
         {
             lines(x, schi(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     else if (func == "hchi")  # 위험함수
@@ -95,7 +95,7 @@ plot.chi_seq = function(x, df = 1, xlim=c(0, 10), ylim=c(0, 5), func="dchi")
         {
             lines(x, hchi(x, df=df[i]), col=color[color_counter], lwd=2);
             color_counter = color_counter + 1;
-            legend_name = c(legend_name, paste("df = ", i, sep=""))
+            legend_name = c(legend_name, paste("df = ", df[i], sep=""))
         }
     }
     legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
