@@ -81,7 +81,7 @@ plot.dhillon2_seq = function(x, alpha = 1, beta = 1, gamma = 1, xlim=c(0, 10), y
             {
                 color_counter_init = color_counter
                 legend_name = NULL;
-                plot(x, pdhillon2(x, alpha=alpha[1], beta=beta[1], gamma=gamma[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Cualphalative Distribution Function")
+                plot(x, pdhillon2(x, alpha=alpha[1], beta=beta[1], gamma=gamma[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Cumulative Distribution Function")
                 for (k in 1:len_gamma)   ### 파라메터: gamma
                 {
                     lines(x, pdhillon2(x, alpha=alpha[i], beta=beta[j], gamma=gamma[k]), col=color[color_counter], lwd=2);
