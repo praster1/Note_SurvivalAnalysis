@@ -2,7 +2,7 @@ setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
 source("colorPalette.R")
 
 
-##### Birnbaum-Saunders Distribution
+##### Cauchy Distribution
 ### parameter
 location = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
