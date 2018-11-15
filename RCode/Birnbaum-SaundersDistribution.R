@@ -3,7 +3,7 @@ source("colorPalette.R")
 require(extraDistr)
 
 
-##### Beta Distribution
+##### Birnbaum-Saunders Distribution
 ### parameter
 alpha = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)

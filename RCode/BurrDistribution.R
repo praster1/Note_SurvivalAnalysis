@@ -1,7 +1,9 @@
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+source("colorPalette.R")
 require(extremefit)
 
 
-##### Beta Distribution
+##### Burr Distribution
 ### parameter
 alpha = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
