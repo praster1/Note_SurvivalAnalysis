@@ -14,15 +14,7 @@ x <- seq(-10, 10, length.out = 1000)
 ### 수명 분포
 dgumbel_min = function (x, scale = 1, location = 0) 
 {
-    fx <- 1/scale * exp(-(x - location)/scale) * exp(- exp((x - location)/scale))
-    return(fx)
-}
-
-
-### 분위수 함수
-qgumbel_min = function (x, scale = 1, location = 0) 
-{
-    fx <- location - scale * log(-log(x))
+    fx <- 1/scale * exp(-(x - location)/scale) * exp(-exp((x - location)/scale))
     return(fx)
 }
 
@@ -37,7 +29,7 @@ rgumbel_min = function (x, scale = 1, location = 0)
 ### 누적분포함수
 pgumbel_min = function (q, scale = 1, location = 0) 
 {
-    fx = -(exp(-exp((q - location)/scale)) - 1)
+    fx = -(sgumbel_min(x, scale, location) - 1)
     return(fx)
 }
 
@@ -56,6 +48,8 @@ hgumbel_min = function (x, scale = 1, location = 0)
     fx <- dgumbel_min(x, scale, location) / sgumbel_min(x, scale, location)
     return(fx)
 }
+
+
 
 
 
