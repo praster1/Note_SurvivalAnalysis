@@ -1,94 +1,140 @@
-##### 호스 분포
-### f(y) = (1+s y)^(-f/s) exp(-(y/m)^2/2) (y/m^2+f/(1+s y))
-### y = x or t, s = beta, f = theta, m = delta
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+source("colorPalette.R")
 require(rmutil)
 
-par(mfrow = c(3, 4))
 
-### parameter: delta
-delta = c(0.5, 1, 2, 4, 8)	# delta
+##### Hjorth Distribution
+### parameter
+delta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)	# m (delta)
+beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)		# s (beta)
+theta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)	# f (theta)
 
-### Input Variable
-x <- seq(0.1, 10, length.out = 101)
-
-color = rainbow(10)
-
-### Life Distribution
-plot(x, dhjorth(x, m=delta[1], s=1, f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Life Distribution")
-for (i in 2:5)	{	lines(x, dhjorth(x, m=delta[i], s=1, f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('delta = 0.5', 'delta = 1', 'delta = 2', 'delta = 4', 'delta = 8'))
-
-### Cumulative Distribution
-plot(x, phjorth(x, m=delta[1], s=1, f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Cumulative Distribution")
-for (i in 2:5)	{	lines(x, phjorth(x, m=delta[i], s=1, f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('delta = 0.5', 'delta = 1', 'delta = 2', 'delta = 4', 'delta = 8'))
-
-### Survival Function
-plot(x, 1-phjorth(x, m=delta[1], s=1, f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Survival Function")
-for (i in 2:5)	{	lines(x, 1-phjorth(x, m=delta[i], s=1, f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('delta = 0.5', 'delta = 1', 'delta = 2', 'delta = 4', 'delta = 8'))
-
-### Hazard Function
-plot(x, dhjorth(x, m=delta[1], s=1, f=1)/(1-phjorth(x, m=delta[1], s=1, f=1)), xlim=c(0, 10), ylim=c(0, 10), col=color[1], lwd=2, type = 'l', main="Hazard Function")
-for (i in 2:5) {	lines(x, dhjorth(x, m=delta[i], s=1, f=1)/(1-phjorth(x, m=delta[i], s=1, f=1)), col=color[i], lwd=2);	}
-legend('topright', bty = 'n', lwd=2, col=color[1:5], legend = c('delta = 0.5', 'delta = 1', 'delta = 2', 'delta = 4', 'delta = 8'))
+### input varialbe
+x <- seq(0.1, 1, length.out = 1000)
 
 
+### 수명 분포
+dhjorth(x, m = 1, s = 1, f = 1)
 
-### parameter: beta
-beta = c(0.5, 1, 2, 4, 8)	# beta
 
-### Input Variable
-x <- seq(0.1, 10, length.out = 101)
+### 분위수 함수
+qhjorth(x, m = 1, s = 1, f = 1)
 
-color = rainbow(10)
 
-### Life Distribution
-plot(x, dhjorth(x, m=1, s=beta[1], f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Life Distribution")
-for (i in 2:5)	{	lines(x, dhjorth(x, m=1, s=beta[i], f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('beta = 0.5', 'beta = 1', 'beta = 2', 'beta = 4', 'beta = 8'))
+### 난수 함수
+rhjorth(x, m = 1, s = 1, f = 1)
 
-### Cumulative Distribution
-plot(x, phjorth(x, m=1, s=beta[1], f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Cumulative Distribution")
-for (i in 2:5)	{	lines(x, phjorth(x, m=1, s=beta[i], f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('beta = 0.5', 'beta = 1', 'beta = 2', 'beta = 4', 'beta = 8'))
 
-### Survival Function
-plot(x, 1-phjorth(x, m=1, s=beta[1], f=1), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Survival Function")
-for (i in 2:5)	{	lines(x, 1-phjorth(x, m=1, s=beta[i], f=1), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('beta = 0.5', 'beta = 1', 'beta = 2', 'beta = 4', 'beta = 8'))
+### 누적분포함수
+phjorth(x, m = 1, s = 1, f = 1)
 
-### Hazard Function
-plot(x, dhjorth(x, m=1, s=beta[1], f=1)/(1-phjorth(x, m=1, s=beta[1], f=1)), xlim=c(0, 10), ylim=c(0, 10), col=color[1], lwd=2, type = 'l', main="Hazard Function")
-for (i in 2:5) {	lines(x, dhjorth(x, m=1, s=beta[i], f=1)/(1-phjorth(x, m=1, s=beta[i], f=1)), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('beta = 0.5', 'beta = 1', 'beta = 2', 'beta = 4', 'beta = 8'))
+
+### 생존함수
+shjorth = function (x, m = 1, s = 1, f=1)
+{
+    fx <- 1 - phjorth(x, m = m, s = m, f = f)
+    return(fx)
+}
+
+
+### 위험함수
+hhjorth = function (x, m = 1, s = 1, f=1)
+{
+    fx <- dhjorth(x, m = m, s = m, f = f) / shjorth(x, m = m, s = m, f = f)
+    return(fx)
+}
 
 
 
-### parameter: theta
-theta = c(0.5, 1, 2, 4, 8)	#theta
 
-### Input Variable
-x <- seq(0.1, 10, length.out = 101)
 
-color = rainbow(10)
+##### Plot
+plot.hjorth_seq = function(x, m = 1, s = 1, f = 1, xlim=c(0, 10), ylim=c(0, 5), func="dhjorth")
+{
+    color=colorPalette(300)
 
-### Life Distribution
-plot(x, dhjorth(x, m=1, s=1, f=theta[1]), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Life Distribution")
-for (i in 2:5)	{	lines(x, dhjorth(x, m=1, s=1, f=theta[i]), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('theta = 0.5', 'theta = 1', 'theta = 2', 'theta = 4', 'theta = 8'))
+    len_m = length(m)       # m 파라메터의 길이
+    len_s = length(s)          # s 파라메터의 길이
+    len_f = length(f)  # f 파라메터의 길이
+    
+    color_counter = 1
+    for (i in 1:len_m)  ### 파라메터: m
+    {
+        if (func=="dhjorth")     # 수명분포
+        {
+            for (j in 1:len_s)   ### 파라메터: s
+            {
+                color_counter_init = color_counter
+                legend_name = NULL;
+                plot(x, dhjorth(x, m=m[1], s=s[1], f=f[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Life Distribution Function")
+                for (k in 1:len_f)   ### 파라메터: f
+                {
+                    lines(x, dhjorth(x, m=m[i], s=s[j], f=f[k]), col=color[color_counter], lwd=2);
+                    color_counter = color_counter + 1;
+                    legend_name = c(legend_name, paste("m = ", m[i], " / s = ", s[j], " / f = ", f[k], sep=""))
+                }
+                legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
+            }
+        }
+        else if (func == "phjorth")  # 누적분포함수
+        {
+            for (j in 1:len_s)   ### 파라메터: s
+            {
+                color_counter_init = color_counter
+                legend_name = NULL;
+                plot(x, phjorth(x, m=m[1], s=s[1], f=f[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Cumulative Distribution Function")
+                for (k in 1:len_f)   ### 파라메터: f
+                {
+                    lines(x, phjorth(x, m=m[i], s=s[j], f=f[k]), col=color[color_counter], lwd=2);
+                    color_counter = color_counter + 1;
+                    legend_name = c(legend_name, paste("m = ", m[i], " / s = ", s[j], " / f = ", f[k], sep=""))
+                }
+                legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
+            }
+        }
+        else if (func == "shjorth")  # 생존함수
+        {
+            for (j in 1:len_s)   ### 파라메터: s
+            {
+                color_counter_init = color_counter
+                legend_name = NULL;
+                plot(x, shjorth(x, m=m[1], s=s[1], f=f[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Survival Function")
+                for (k in 1:len_f)   ### 파라메터: f
+                {
+                    lines(x, shjorth(x, m=m[i], s=s[j], f=f[k]), col=color[color_counter], lwd=2);
+                    color_counter = color_counter + 1;
+                    legend_name = c(legend_name, paste("m = ", m[i], " / s = ", s[j], " / f = ", f[k], sep=""))
+                }
+                legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
+            }
+        }
+        else if (func == "hhjorth")  # 위험함수
+        {
+            for (j in 1:len_s)   ### 파라메터: s
+            {
+                color_counter_init = color_counter
+                legend_name = NULL;
+                plot(x, hhjorth(x, m=m[1], s=s[1], f=f[1]), xlim=xlim, ylim=ylim, col=color[1], lwd=2, type = 'n', main="Hazard Function")
+                for (k in 1:len_f)   ### 파라메터: f
+                {
+                    lines(x, hhjorth(x, m=m[i], s=s[j], f=f[k]), col=color[color_counter], lwd=2);
+                    color_counter = color_counter + 1;
+                    legend_name = c(legend_name, paste("m = ", m[i], " / s = ", s[j], " / f = ", f[k], sep=""))
+                }
+                legend('right', bty = 'n', lwd=2, col=color[color_counter_init:(color_counter - 1)], legend = legend_name)
+            }
+        }
+    }
+}
 
-### Cumulative Distribution
-plot(x, phjorth(x, m=1, s=1, f=theta[1]), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Cumulative Distribution")
-for (i in 2:5)	{	lines(x, phjorth(x, m=1, s=1, f=theta[i]), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('theta = 0.5', 'theta = 1', 'theta = 2', 'theta = 4', 'theta = 8'))
+par(mfrow = c(9, 8))
+plot.hjorth_seq(x, delta, beta, theta, xlim=c(min(x), max(x)), ylim=c(-10, 10), func="dhjorth")
 
-### Survival Function
-plot(x, 1-phjorth(x, m=1, s=1, f=theta[1]), xlim=c(0, 10), ylim=c(0, 1), col=color[1], lwd=2, type = 'l', main="Survival Function")
-for (i in 2:5)	{	lines(x, 1-phjorth(x, m=1, s=1, f=theta[i]), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('theta = 0.5', 'theta = 1', 'theta = 2', 'theta = 4', 'theta = 8'))
+par(mfrow = c(9, 8))
+plot.hjorth_seq(x, delta, beta, theta, xlim=c(min(x), max(x)), ylim=c(-5, 5), func="phjorth")
 
-### Hazard Function
-plot(x, dhjorth(x, m=1, s=1, f=theta[1])/(1-phjorth(x, m=1, s=1, f=theta[1])), xlim=c(0, 10), ylim=c(0, 10), col=color[1], lwd=2, type = 'l', main="Hazard Function")
-for (i in 2:5) {	lines(x, dhjorth(x, m=1, s=1, f=theta[i])/(1-phjorth(x, m=1, s=1, f=theta[i])), col=color[i], lwd=2);	}
-legend('right', bty = 'n', lwd=2, col=color[1:5], legend = c('theta = 0.5', 'theta = 1', 'theta = 2', 'theta = 4', 'theta = 8'))
+par(mfrow = c(9, 8))
+plot.hjorth_seq(x, delta, beta, theta, xlim=c(min(x), max(x)), ylim=c(-5, 5), func="shjorth")
+
+par(mfrow = c(9, 8))
+plot.hjorth_seq(x, delta, beta, theta, xlim=c(min(x), max(x)), ylim=c(-30, 30), func="hhjorth")
