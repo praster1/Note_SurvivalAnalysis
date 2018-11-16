@@ -22,26 +22,10 @@ dhyperbolicsecant = function(x, alpha = 1, beta = 1)
 }
 
 
-### 분위수 함수
-qhyperbolicsecant = function(x, alpha = 1, beta = 0)
-{
-    fx = alpha + (beta-alpha) * qbeta(x, 0.5, 0.5)
-    return(fx)
-}
-
-
-### 난수 함수
-rhyperbolicsecant = function(x, alpha = 1, beta = 0)
-{
-    fx = alpha + (beta-alpha) * rbeta(x, 0.5, 0.5)
-    return(fx)
-}
-
-
 ### 누적분포함수
-phyperbolicsecant = function(x, alpha = 1, beta = 0)
+phyperbolicsecant = function(x, alpha = 1, beta = 1)
 {
-    fx = pbeta((x-alpha)/(beta-alpha), 0.5, 0.5)
+    fx = -(shyperbolicsecant(x, alpha, beta) - 1)
     return(fx)
 }
 
@@ -49,7 +33,7 @@ phyperbolicsecant = function(x, alpha = 1, beta = 0)
 ### 생존함수
 shyperbolicsecant = function (x, alpha = 1, beta = 0) 
 {
-    fx <- 1 - phyperbolicsecant(x, alpha, beta)
+    fx <- 1 - (2/pi) * atan(exp((x - alpha)/beta))
     return(fx)
 }
 
