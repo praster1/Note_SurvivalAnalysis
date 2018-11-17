@@ -1,1 +1,0 @@
-# https://www.rdocumentation.org/packages/extremefit/versions/0.2.3/topics/Pareto%20Distribution
