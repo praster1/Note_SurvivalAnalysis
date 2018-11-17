@@ -21,27 +21,10 @@ dmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
 }
 
 
-### 분위수 함수
-qmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
-{
-    fx = qgamma(x-alpha, beta=beta, gamma=gamma)
-    return(fx)
-}
-
-
-### 난수 함수
-rmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
-{
-	temp = gamma * ((x - alpha)/beta)
-    fx = exp(-(1/gamma) * exp(temp) + temp + (1/gamma))
-    return(fx)
-}
-
-
 ### 누적분포함수
 pmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
 {
-    fx = pgamma(x-alpha, beta=beta, gamma=gamma)
+    fx = -(smuth(x, alpha=alpha, beta=beta, gamma=gamma) - 1)
     return(fx)
 }
 
@@ -49,7 +32,8 @@ pmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
 ### 생존함수
 smuth = function(x, beta=1, gamma=1, alpha=0)
 {
-    fx <- 1 - pmuth(x, alpha=alpha, beta=beta, gamma=gamma)
+    temp = gamma * ((x - alpha)/beta)
+    fx <- exp(-(1/gamma) * exp(temp) + temp + (1/gamma))
     return(fx)
 }
 
