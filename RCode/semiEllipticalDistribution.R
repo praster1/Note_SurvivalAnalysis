@@ -31,7 +31,8 @@ psemielliptical = function(x, alpha = 0, beta = 1)
 ### 생존함수
 ssemielliptical = function (x, alpha = 0, beta = 1) 
 {
-    fx = (1/2) * (1 - ((x-alpha)/beta)^3)
+	temp = (x - alpha)/beta
+    fx = (1/2) * (1/pi) * (temp * sqrt(1-temp^2) + asin(temp))
     return(fx)
 }
 
@@ -109,10 +110,11 @@ par(mfrow = c(3, 3))
 plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 5), func="dsemielliptical")
 
 par(mfrow = c(3, 3))
-plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="psemielliptical")
+plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 2), func="psemielliptical")
 
 par(mfrow = c(3, 3))
-plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="ssemielliptical")
+plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(-1, 1), func="ssemielliptical")
 
 par(mfrow = c(3, 3))
-plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 10), func="hsemielliptical")
+plot.semielliptical_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(-10, 10), func="hsemielliptical")
+
