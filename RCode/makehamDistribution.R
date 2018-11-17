@@ -105,6 +105,6 @@ par(mfrow = c(2, 2))
 plot.makeham_seq(x, theta, xlim=c(min(x), max(x)), ylim=c(0, 2), func="dmakeham")
 plot.makeham_seq(x, theta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="pmakeham")
 plot.makeham_seq(x, theta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="smakeham")
-plot.makeham_seq(x, theta, xlim=c(min(x), max(x)), ylim=c(0, 10), func="hmakeham")
+plot.makeham_seq(x, theta, xlim=c(min(x), max(x)), ylim=c(0, 50), func="hmakeham")
 
 
