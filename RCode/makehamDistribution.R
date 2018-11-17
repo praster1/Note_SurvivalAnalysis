@@ -8,7 +8,7 @@ require(VGAM)
 theta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -30,7 +30,7 @@ pmakeham(x, shape = theta)
 ### 생존함수
 smakeham = function (x, shape = 1)
 {
-    fx <- 1 - pmakeham(x, shape = theta)
+    fx = 1 - pmakeham(x, shape = theta)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ smakeham = function (x, shape = 1)
 ### 위험함수
 hmakeham = function (x, shape = 1)
 {
-    fx <- dmakeham(x, shape = theta) / smakeham(x, shape = theta)
+    fx = dmakeham(x, shape = theta) / smakeham(x, shape = theta)
     return(fx)
 }
 

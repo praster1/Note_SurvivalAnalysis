@@ -8,11 +8,11 @@ mu = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 sigma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(-10, 10, length.out = 1000)
+x = seq(-10, 10, length.out = 1000)
 
 
 ### 수명 분포
-drcosine <- function(x, mu, sigma) 
+drcosine = function(x, mu, sigma) 
 {
     fx = (1/(2*sigma))*(1 + cos( pi * (x-mu)/sigma ))
     return(fx)
@@ -30,7 +30,7 @@ prcosine = function(x, mu = 1, sigma = 0)
 ### 생존함수
 srcosine = function (x, mu = 1, sigma = 0) 
 {
-    fx <- (1/2) * (1 - ((x-mu)/sigma) - (1/pi)*sin(pi * ((x-mu)/sigma)))
+    fx = (1/2) * (1 - ((x-mu)/sigma) - (1/pi)*sin(pi * ((x-mu)/sigma)))
     return(fx)
 }
 
@@ -38,7 +38,7 @@ srcosine = function (x, mu = 1, sigma = 0)
 ### 위험함수
 hrcosine = function (x, mu = 1, sigma = 0)
 {
-    fx <- drcosine(x, mu, sigma) / srcosine(x, mu, sigma)
+    fx = drcosine(x, mu, sigma) / srcosine(x, mu, sigma)
     return(fx)
 }
 

@@ -9,11 +9,11 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
-dpower <- function(x, alpha = 1, beta = 1, gamma = 1)
+dpower = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma/beta) * (((x - alpha)/beta)^(gamma-1))
     return(fx)
@@ -31,7 +31,7 @@ ppower = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 spower = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- 1 - (((x-alpha)/beta)^gamma)
+    fx = 1 - (((x-alpha)/beta)^gamma)
     return(fx)
 }
 
@@ -39,7 +39,7 @@ spower = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hpower = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- dpower(x, alpha, beta, gamma) / spower(x, alpha, beta, gamma)
+    fx = dpower(x, alpha, beta, gamma) / spower(x, alpha, beta, gamma)
     return(fx)
 }
 

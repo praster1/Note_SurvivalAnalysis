@@ -10,7 +10,7 @@ shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 # m : shape / c
 # beta : scale / b
@@ -32,7 +32,7 @@ plfrechet = function(x, location = 0, shape = 1, scale = 1)
 ### 생존함수
 slfrechet = function (x, location = 1, shape = 1, scale = 1)
 {
-    fx <- exp(-((location - x) / scale)^(-shape))
+    fx = exp(-((location - x) / scale)^(-shape))
     return(fx)
 }
 
@@ -40,7 +40,7 @@ slfrechet = function (x, location = 1, shape = 1, scale = 1)
 ### 위험함수
 hlfrechet = function (x, location = 1, shape = 1, scale = 1)
 {
-    fx <- dlfrechet(x, location = location, shape = shape, scale = scale) / slfrechet(x, location = location, shape = shape, scale = scale)
+    fx = dlfrechet(x, location = location, shape = shape, scale = scale) / slfrechet(x, location = location, shape = shape, scale = scale)
     return(fx)
 }
 

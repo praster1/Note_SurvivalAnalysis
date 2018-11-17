@@ -9,7 +9,7 @@ shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -47,7 +47,7 @@ pgamma3 = function(x, shape=shape, scale=scale, location=location)
 ### 생존함수
 sgamma3 = function(x, shape=1, scale=1, location=0)
 {
-    fx <- 1 - pgamma3(x, shape=shape, scale=scale, location=location)
+    fx = 1 - pgamma3(x, shape=shape, scale=scale, location=location)
     return(fx)
 }
 
@@ -55,7 +55,7 @@ sgamma3 = function(x, shape=1, scale=1, location=0)
 ### 위험함수
 hgamma3 = function (x, shape=shape, scale=scale, location=0)
 {
-    fx <- dgamma3(x, shape=shape, scale=scale, location=location) / sgamma3(x, shape=shape, scale=scale, location=location)
+    fx = dgamma3(x, shape=shape, scale=scale, location=location) / sgamma3(x, shape=shape, scale=scale, location=location)
     return(fx)
 }
 

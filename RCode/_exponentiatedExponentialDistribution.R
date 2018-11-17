@@ -11,11 +11,11 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
-dexponentiatedExponential <- function(x, alpha = 1, beta = 1, gamma = 1)
+dexponentiatedExponential = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma/beta) * exp(-((x - alpha) / beta)) * (1 - exp(((x - alpha) / beta)))^(gamma-1)
     return(fx)
@@ -33,7 +33,7 @@ pexponentiatedExponential = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 sexponentiatedExponential = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- 1 - (1 - exp(((x - alpha) / beta)))^gamma
+    fx = 1 - (1 - exp(((x - alpha) / beta)))^gamma
     return(fx)
 }
 
@@ -41,7 +41,7 @@ sexponentiatedExponential = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hexponentiatedExponential = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- dexponentiatedExponential(x, alpha, beta, gamma) / sexponentiatedExponential(x, alpha, beta, gamma)
+    fx = dexponentiatedExponential(x, alpha, beta, gamma) / sexponentiatedExponential(x, alpha, beta, gamma)
     return(fx)
 }
 

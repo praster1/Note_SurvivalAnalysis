@@ -9,7 +9,7 @@ alpha = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 1, length.out = 1000)
+x = seq(0, 1, length.out = 1000)
 
 
 ### 수명 분포
@@ -31,7 +31,7 @@ pfatigue(x, alpha, beta, mu = 0)
 ### 생존함수
 sfatigue = function (x, alpha = 1, beta = 0) 
 {
-    fx <- 1 - pfatigue(x, alpha, beta)
+    fx = 1 - pfatigue(x, alpha, beta)
     return(fx)
 }
 
@@ -39,7 +39,7 @@ sfatigue = function (x, alpha = 1, beta = 0)
 ### 위험함수
 hfatigue = function (x, alpha = 1, beta = 0)
 {
-    fx <- dfatigue(x, alpha, beta) / sfatigue(x, alpha, beta)
+    fx = dfatigue(x, alpha, beta) / sfatigue(x, alpha, beta)
     return(fx)
 }
 

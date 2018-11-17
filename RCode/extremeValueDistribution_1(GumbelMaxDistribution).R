@@ -8,13 +8,13 @@ location = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(-10, 10, length.out = 1000)
+x = seq(-10, 10, length.out = 1000)
 
 
 ### 수명 분포
 dgumbel_max = function (x, scale = 1, location = 0) 
 {
-    fx <- 1/scale * exp(-(x - location)/scale) * exp(-exp(-(x - location)/scale))
+    fx = 1/scale * exp(-(x - location)/scale) * exp(-exp(-(x - location)/scale))
     return(fx)
 }
 
@@ -37,7 +37,7 @@ pgumbel_max = function (q, scale = 1, location = 0)
 ### 생존함수
 sgumbel_max = function (x, scale = 1, location = 0) 
 {
-    fx <- 1 - exp(-exp(-(x - location)/scale))
+    fx = 1 - exp(-exp(-(x - location)/scale))
     return(fx)
 }
 
@@ -45,7 +45,7 @@ sgumbel_max = function (x, scale = 1, location = 0)
 ### 위험함수
 hgumbel_max = function (x, scale = 1, location = 0) 
 {
-    fx <- dgumbel_max(x, scale, location) / sgumbel_max(x, scale, location)
+    fx = dgumbel_max(x, scale, location) / sgumbel_max(x, scale, location)
     return(fx)
 }
 

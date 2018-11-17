@@ -9,7 +9,7 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -33,7 +33,7 @@ pmuth = function(x, alpha=alpha, beta=beta, gamma=gamma)
 smuth = function(x, beta=1, gamma=1, alpha=0)
 {
     temp = gamma * ((x - alpha)/beta)
-    fx <- exp(-(1/gamma) * exp(temp) + temp + (1/gamma))
+    fx = exp(-(1/gamma) * exp(temp) + temp + (1/gamma))
     return(fx)
 }
 
@@ -41,7 +41,7 @@ smuth = function(x, beta=1, gamma=1, alpha=0)
 ### 위험함수
 hmuth = function (x, beta=beta, gamma=gamma, alpha=0)
 {
-    fx <- dmuth(x, alpha=alpha, beta=beta, gamma=gamma) / smuth(x, alpha=alpha, beta=beta, gamma=gamma)
+    fx = dmuth(x, alpha=alpha, beta=beta, gamma=gamma) / smuth(x, alpha=alpha, beta=beta, gamma=gamma)
     return(fx)
 }
 

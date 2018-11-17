@@ -5,7 +5,7 @@ par(mfrow = c(2, 4))
 alpha = c(0.5, 1, 2, 4, 8)	# shape
 
 ### Input Variable
-x <- seq(0, 10, length.out = 101)
+x = seq(0, 10, length.out = 101)
 
 color = rainbow(10)
 
@@ -35,7 +35,7 @@ legend('topright', bty = 'n', lwd=2, col=color[1:5], legend = c('alpha = 0.5', '
 theta = c(0.5, 1, 2, 4, 8)	#scale
 
 ### Input Variable
-x <- seq(0, 10, length.out = 101)
+x = seq(0, 10, length.out = 101)
 
 color = rainbow(10)
 

@@ -3,7 +3,7 @@
 gamma_p = c(0.5, 1, 2, 4, 8)	# location
 
 ### Input Variable
-x <- seq(0, 10, length.out = 101)
+x = seq(0, 10, length.out = 101)
 
 color = rainbow(10)
 par(mfrow = c(2, 2))

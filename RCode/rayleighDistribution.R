@@ -7,7 +7,7 @@ source("colorPalette.R")
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -29,7 +29,7 @@ prayleigh(x, scale = scale)
 ### 생존함수
 srayleigh = function (x, scale = 1)
 {
-    fx <- 1 - prayleigh(x, scale = scale)
+    fx = 1 - prayleigh(x, scale = scale)
     return(fx)
 }
 
@@ -37,7 +37,7 @@ srayleigh = function (x, scale = 1)
 ### 위험함수
 hrayleigh = function (x, scale = 1)
 {
-    fx <- drayleigh(x, scale = scale) / srayleigh(x, scale = scale)
+    fx = drayleigh(x, scale = scale) / srayleigh(x, scale = scale)
     return(fx)
 }
 
@@ -114,7 +114,7 @@ library(VGAM)
 k_p = c(0.5, 1, 2, 4, 8)	# k_p
 
 ### Input Variable
-x <- seq(0, 10, length.out = 101)
+x = seq(0, 10, length.out = 101)
 
 
 color = rainbow(10)

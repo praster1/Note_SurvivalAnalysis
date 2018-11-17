@@ -10,7 +10,7 @@ shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -32,7 +32,7 @@ pfrechet(x, location = 0, shape = 1, scale = 1)
 ### 생존함수
 sfrechet = function (x, location = 1, shape = 1, scale = 1)
 {
-    fx <- 1 - pfrechet(x, location = location, shape = shape, scale = scale)
+    fx = 1 - pfrechet(x, location = location, shape = shape, scale = scale)
     return(fx)
 }
 
@@ -40,7 +40,7 @@ sfrechet = function (x, location = 1, shape = 1, scale = 1)
 ### 위험함수
 hfrechet = function (x, location = 1, shape = 1, scale = 1)
 {
-    fx <- dfrechet(x, location = location, shape = shape, scale = scale) / sfrechet(x, location = location, shape = shape, scale = scale)
+    fx = dfrechet(x, location = location, shape = shape, scale = scale) / sfrechet(x, location = location, shape = shape, scale = scale)
     return(fx)
 }
 

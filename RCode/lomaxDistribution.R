@@ -11,11 +11,11 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 1, length.out = 1000)
+x = seq(0, 1, length.out = 1000)
 
 
 ### 수명 분포
-dlomax <- function(x, alpha = 1, beta = 1, gamma = 1)
+dlomax = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma / beta) * (1 + ((x - alpha)/beta))^(-(gamma+1))
     return(fx)
@@ -33,7 +33,7 @@ plomax = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 slomax = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- (1 + ((x - alpha)/beta))^(-gamma)
+    fx = (1 + ((x - alpha)/beta))^(-gamma)
     return(fx)
 }
 
@@ -41,7 +41,7 @@ slomax = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hlomax = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- dlomax(x, alpha, beta, gamma) / slomax(x, alpha, beta, gamma)
+    fx = dlomax(x, alpha, beta, gamma) / slomax(x, alpha, beta, gamma)
     return(fx)
 }
 

@@ -8,7 +8,7 @@ require(extraDistr)
 sigma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -30,7 +30,7 @@ phnorm(x, sigma = 1)
 ### 생존함수
 shnorm = function (x, sigma = 1)
 {
-    fx <- 1 - phnorm(x, sigma = sigma)
+    fx = 1 - phnorm(x, sigma = sigma)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ shnorm = function (x, sigma = 1)
 ### 위험함수
 hhnorm = function (x, sigma = 1)
 {
-    fx <- dhnorm(x, sigma = sigma) / shnorm(x, sigma = sigma)
+    fx = dhnorm(x, sigma = sigma) / shnorm(x, sigma = sigma)
     return(fx)
 }
 

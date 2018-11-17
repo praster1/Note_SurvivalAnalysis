@@ -8,7 +8,7 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -17,7 +17,7 @@ dalpha = function(x, alpha = 1, beta = 0)
     if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
     if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
     
-    fx <- (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
+    fx = (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
     return(fx)
 }
 
@@ -28,7 +28,7 @@ palpha = function (x, alpha = 1, beta = 0)
     if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
     if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
     
-    fx <- pnorm(alpha - beta/x) / pnorm(alpha)
+    fx = pnorm(alpha - beta/x) / pnorm(alpha)
     return(fx)
 }
 
@@ -39,7 +39,7 @@ salpha = function (x, alpha = 1, beta = 0)
     if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
     if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
     
-    fx <- 1 - (pnorm(alpha - beta/x) / pnorm(alpha))
+    fx = 1 - (pnorm(alpha - beta/x) / pnorm(alpha))
     return(fx)
 }
 
@@ -50,7 +50,7 @@ halpha = function (x, alpha = 1, beta = 0)
     if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
     if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
     
-    fx <- dalpha(x, alpha, beta) / salpha(x, alpha, beta)
+    fx = dalpha(x, alpha, beta) / salpha(x, alpha, beta)
     return(fx)
 }
 

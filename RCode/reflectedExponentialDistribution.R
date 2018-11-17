@@ -8,7 +8,7 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -30,7 +30,7 @@ prexponential = function(x, alpha=alpha, beta=beta)
 ### 생존함수
 srexponential = function (x, alpha=alpha, beta=beta)
 {
-    fx <- 1 - exp((x-alpha)/beta)
+    fx = 1 - exp((x-alpha)/beta)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ srexponential = function (x, alpha=alpha, beta=beta)
 ### 위험함수
 hrexponential = function (x, alpha=alpha, beta=beta)
 {
-    fx <- drexponential(x, alpha, beta) / srexponential(x, alpha, beta)
+    fx = drexponential(x, alpha, beta) / srexponential(x, alpha, beta)
     return(fx)
 }
 

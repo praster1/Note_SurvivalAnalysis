@@ -8,7 +8,7 @@ require(extraDistr)
 sigma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -30,7 +30,7 @@ phcauchy(x, sigma = sigma)
 ### 생존함수
 shcauchy = function (x, sigma = 1)
 {
-    fx <- 1 - phcauchy(x, sigma = sigma)
+    fx = 1 - phcauchy(x, sigma = sigma)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ shcauchy = function (x, sigma = 1)
 ### 위험함수
 hhcauchy = function (x, sigma = 1)
 {
-    fx <- dhcauchy(x, sigma = sigma) / shcauchy(x, sigma = sigma)
+    fx = dhcauchy(x, sigma = sigma) / shcauchy(x, sigma = sigma)
     return(fx)
 }
 

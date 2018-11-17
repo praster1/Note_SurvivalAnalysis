@@ -8,13 +8,13 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)		# s (beta)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
 dhalflogistic = function(x, alpha = 0, beta = 1)
 {
-    fx <- (2 * exp((x-alpha)/beta)) / (beta * (1 + exp((x-alpha)/beta))^2)
+    fx = (2 * exp((x-alpha)/beta)) / (beta * (1 + exp((x-alpha)/beta))^2)
     return(fx)
 }
 
@@ -22,7 +22,7 @@ dhalflogistic = function(x, alpha = 0, beta = 1)
 ### 누적분포함수
 phalflogistic = function(x, alpha = 0, beta = 1)
 {
-    Fx <- -(shalflogistic(x, alpha = alpha, beta = beta) - 1)
+    Fx = -(shalflogistic(x, alpha = alpha, beta = beta) - 1)
     return(Fx)
 }
 
@@ -30,7 +30,7 @@ phalflogistic = function(x, alpha = 0, beta = 1)
 ### 생존함수
 shalflogistic = function(x, alpha = 0, beta = 1)
 {
-    fx <- 2 * (1 + exp((x-alpha)/beta))^(-1)
+    fx = 2 * (1 + exp((x-alpha)/beta))^(-1)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ shalflogistic = function(x, alpha = 0, beta = 1)
 ### 위험함수
 hhalflogistic = function(x, alpha = 0, beta = 1)
 {
-    fx <- dhalflogistic(x, alpha = alpha, beta = beta) / shalflogistic(x, alpha = alpha, beta = beta)
+    fx = dhalflogistic(x, alpha = alpha, beta = beta) / shalflogistic(x, alpha = alpha, beta = beta)
     return(fx)
 }
 

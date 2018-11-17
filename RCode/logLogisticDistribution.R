@@ -11,11 +11,11 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
-dloglogistic <- function(x, alpha = 1, beta = 1, gamma = 1)
+dloglogistic = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma/beta) * ((x - alpha)/beta)^(gamma - 1) * (1 + ((x - alpha) / beta)^gamma)^(-2)
     return(fx)
@@ -33,7 +33,7 @@ ploglogistic = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 sloglogistic = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- (gamma/beta) * ((x - alpha) / beta)^(gamma - 1) * (1 + ((x - alpha) / beta)^gamma)^(-1)
+    fx = (gamma/beta) * ((x - alpha) / beta)^(gamma - 1) * (1 + ((x - alpha) / beta)^gamma)^(-1)
     return(fx)
 }
 
@@ -41,7 +41,7 @@ sloglogistic = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hloglogistic = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- dloglogistic(x, alpha, beta, gamma) / sloglogistic(x, alpha, beta, gamma)
+    fx = dloglogistic(x, alpha, beta, gamma) / sloglogistic(x, alpha, beta, gamma)
     return(fx)
 }
 

@@ -8,13 +8,13 @@ alpha = c(0, 0.25, 0.5, 0.75, 1, 2, 4, 8)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
 dgompertz = function (x, alpha = 0, beta = 1) 
 {
-    fx <- alpha * exp(beta * x) * exp(alpha/beta * (1 - exp(beta * x)))
+    fx = alpha * exp(beta * x) * exp(alpha/beta * (1 - exp(beta * x)))
     return(fx)
 }
 
@@ -30,7 +30,7 @@ pgompertz = function (x, alpha = 0, beta = 1)
 ### 생존함수
 sgompertz = function (x, alpha = 0, beta = 1) 
 {
-    fx <- exp(alpha/beta * (1 - exp(beta * x)))
+    fx = exp(alpha/beta * (1 - exp(beta * x)))
     return(fx)
 }
 
@@ -38,7 +38,7 @@ sgompertz = function (x, alpha = 0, beta = 1)
 ### 위험함수
 hgompertz = function (x, alpha = 0, beta = 1) 
 {
-    fx <- dgompertz(x, alpha, beta) / sgompertz(x, alpha, beta)
+    fx = dgompertz(x, alpha, beta) / sgompertz(x, alpha, beta)
     return(fx)
 }
 

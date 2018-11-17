@@ -9,11 +9,11 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 1, length.out = 1000)
+x = seq(0, 1, length.out = 1000)
 
 
 ### 수명 분포
-ddhillon1 <- function(x, alpha = 1, beta = 1, gamma = 1)
+ddhillon1 = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma/beta) * ((x - alpha) / beta)^(gamma - 1) * exp(1 - exp(((x - alpha) / beta)^gamma) + ((x - alpha) / beta)^gamma)
     return(fx)
@@ -31,7 +31,7 @@ pdhillon1 = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 sdhillon1 = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- exp(1 - exp(((x - alpha) / beta)^gamma))
+    fx = exp(1 - exp(((x - alpha) / beta)^gamma))
     return(fx)
 }
 
@@ -39,7 +39,7 @@ sdhillon1 = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hdhillon1 = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- ddhillon1(x, alpha, beta, gamma) / sdhillon1(x, alpha, beta, gamma)
+    fx = ddhillon1(x, alpha, beta, gamma) / sdhillon1(x, alpha, beta, gamma)
     return(fx)
 }
 

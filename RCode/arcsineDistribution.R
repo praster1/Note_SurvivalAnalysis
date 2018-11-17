@@ -8,7 +8,7 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(-1, 10, length.out = 1000)
+x = seq(-1, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -46,7 +46,7 @@ parcsine = function(x, alpha = 1, beta = 0)
 ### 생존함수
 sarcsine = function (x, alpha = 1, beta = 0) 
 {
-    fx <- 1 - parcsine(x, alpha, beta)
+    fx = 1 - parcsine(x, alpha, beta)
     return(fx)
 }
 
@@ -54,7 +54,7 @@ sarcsine = function (x, alpha = 1, beta = 0)
 ### 위험함수
 harcsine = function (x, alpha = 1, beta = 0)
 {
-    fx <- darcsine(x, alpha, beta) / sarcsine(x, alpha, beta)
+    fx = darcsine(x, alpha, beta) / sarcsine(x, alpha, beta)
     return(fx)
 }
 

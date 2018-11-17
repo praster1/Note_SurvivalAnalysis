@@ -9,7 +9,7 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -31,7 +31,7 @@ plexponential = function(x, alpha=alpha, beta=beta)
 ### 생존함수
 slexponential = function (x, alpha=alpha, beta=beta)
 {
-    fx <- exp(-((x-alpha)/beta))
+    fx = exp(-((x-alpha)/beta))
     return(fx)
 }
 
@@ -39,7 +39,7 @@ slexponential = function (x, alpha=alpha, beta=beta)
 ### 위험함수
 hlexponential = function (x, alpha=alpha, beta=beta)
 {
-    fx <- dlexponential(x, alpha, beta) / slexponential(x, alpha, beta)
+    fx = dlexponential(x, alpha, beta) / slexponential(x, alpha, beta)
     return(fx)
 }
 

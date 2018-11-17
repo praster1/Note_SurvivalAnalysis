@@ -11,7 +11,7 @@ alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(-10, 10, length.out = 1000)
+x = seq(-10, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -33,7 +33,7 @@ phyperbolicsecant = function(x, alpha = 1, beta = 1)
 ### 생존함수
 shyperbolicsecant = function (x, alpha = 1, beta = 0) 
 {
-    fx <- 1 - (2/pi) * atan(exp((x - alpha)/beta))
+    fx = 1 - (2/pi) * atan(exp((x - alpha)/beta))
     return(fx)
 }
 
@@ -41,7 +41,7 @@ shyperbolicsecant = function (x, alpha = 1, beta = 0)
 ### 위험함수
 hhyperbolicsecant = function (x, alpha = 1, beta = 0)
 {
-    fx <- dhyperbolicsecant(x, alpha, beta) / shyperbolicsecant(x, alpha, beta)
+    fx = dhyperbolicsecant(x, alpha, beta) / shyperbolicsecant(x, alpha, beta)
     return(fx)
 }
 

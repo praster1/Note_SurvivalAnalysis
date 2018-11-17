@@ -9,7 +9,7 @@ m = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 s = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 10, length.out = 1000)
+x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
@@ -31,7 +31,7 @@ pinvgauss(x, m = 1, s = 1)
 ### 생존함수
 sinvgauss = function (x, m = 1, s = 1)
 {
-    fx <- 1 - pinvgauss(x, m = m, s = s)
+    fx = 1 - pinvgauss(x, m = m, s = s)
     return(fx)
 }
 
@@ -39,7 +39,7 @@ sinvgauss = function (x, m = 1, s = 1)
 ### 위험함수
 hinvgauss = function (x, m = 1, s = 1)
 {
-    fx <- dinvgauss(x, m = m, s = s) / sinvgauss(x, m = m, s = s)
+    fx = dinvgauss(x, m = m, s = s) / sinvgauss(x, m = m, s = s)
     return(fx)
 }
 

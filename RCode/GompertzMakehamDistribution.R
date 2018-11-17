@@ -9,11 +9,11 @@ beta = c(0, 0.25, 0.5, 0.75, 1, 2, 4, 8)
 gamma = c(0, 0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 1, length.out = 1000)
+x = seq(0, 1, length.out = 1000)
 
 
 ### 수명 분포
-dgompertzmakeham <- function(x, alpha = 1, beta = 1, gamma = 1)
+dgompertzmakeham = function(x, alpha = 1, beta = 1, gamma = 1)
 {
     fx = (gamma * ((alpha / beta) * (1 - exp(beta * x)) - gamma * x)) + (alpha * exp(beta * x) * exp((alpha/beta) * (1-exp(beta * x)) - gamma * x))
     return(fx)
@@ -31,7 +31,7 @@ pgompertzmakeham = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 생존함수
 sgompertzmakeham = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- exp((alpha/beta) * (1-exp(beta * x)) - gamma * x)
+    fx = exp((alpha/beta) * (1-exp(beta * x)) - gamma * x)
     return(fx)
 }
 
@@ -39,7 +39,7 @@ sgompertzmakeham = function (x, alpha = 1, beta = 1, gamma = 1)
 ### 위험함수
 hgompertzmakeham = function (x, alpha = 1, beta = 1, gamma = 1)
 {
-    fx <- dgompertzmakeham(x, alpha, beta, gamma) / sgompertzmakeham(x, alpha, beta, gamma)
+    fx = dgompertzmakeham(x, alpha, beta, gamma) / sgompertzmakeham(x, alpha, beta, gamma)
     return(fx)
 }
 

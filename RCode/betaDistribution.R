@@ -8,7 +8,7 @@ alpha = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x <- seq(0, 1, length.out = 1000)
+x = seq(0, 1, length.out = 1000)
 
 
 ### 수명 분포
@@ -30,7 +30,7 @@ pbeta(x, alpha, beta)
 ### 생존함수
 sbeta = function (x, shape1 = 1, shape2 = 0) 
 {
-    fx <- 1 - pbeta(x, shape1=shape1, shape2=shape2)
+    fx = 1 - pbeta(x, shape1=shape1, shape2=shape2)
     return(fx)
 }
 
@@ -38,7 +38,7 @@ sbeta = function (x, shape1 = 1, shape2 = 0)
 ### 위험함수
 hbeta = function (x, shape1 = 1, shape2 = 0)
 {
-    fx <- dbeta(x, shape1=shape1, shape2=shape2) / sbeta(x, shape1=shape1, shape2=shape2)
+    fx = dbeta(x, shape1=shape1, shape2=shape2) / sbeta(x, shape1=shape1, shape2=shape2)
     return(fx)
 }
 
