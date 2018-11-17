@@ -1,6 +1,5 @@
 setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
 source("colorPalette.R")
-require(pracma)
 
 
 ##### unif2 Distribution
