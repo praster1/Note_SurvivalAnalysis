@@ -1,6 +1,6 @@
 setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
 source("colorPalette.R")
-
+require(evd)
 
 ##### 극치 분포: Gumbel 최대값 분포
 ### parameter
