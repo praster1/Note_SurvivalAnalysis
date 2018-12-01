@@ -12,21 +12,34 @@ x = seq(0, 10, length.out = 1000)
 
 
 ### 수명 분포
-dalpha = function(x, alpha = 1, beta = 0) 
+dalpha = function(x, alpha = 1, beta = 1) 
 {
-    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
-    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
     
     fx = (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
     return(fx)
 }
 
 
-### 누적분포함수
-palpha = function (x, alpha = 1, beta = 0) 
+### 난수 함수
+ralpha = function (n, alpha = 1, beta = 1, min = 0, max = 1) 
 {
-    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
-    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }           # beta > 0 이어야 한다.
+    if (n < 0)                          {        stop("n is not negative or 0.")    }        # x >= 0 이어야 한다.
+    if (min < 0)                              {        stop("min is not negative or 0.")    }     # min >= 0이어야 한다.
+    if (min >= max)                        {        stop("max must greater than min")    }   # x >= 0 이어야 한다.
+    
+    fx = dalpha(runif(n, min, max), alpha=alpha, beta=beta)
+    return(fx)
+}
+
+
+### 누적분포함수
+palpha = function (x, alpha = 1, beta = 1) 
+{
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
     
     fx = pnorm(alpha - beta/x) / pnorm(alpha)
     return(fx)
@@ -34,10 +47,10 @@ palpha = function (x, alpha = 1, beta = 0)
 
 
 ### 생존함수
-salpha = function (x, alpha = 1, beta = 0) 
+salpha = function (x, alpha = 1, beta = 1) 
 {
-    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
-    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
     
     fx = 1 - (pnorm(alpha - beta/x) / pnorm(alpha))
     return(fx)
@@ -45,10 +58,10 @@ salpha = function (x, alpha = 1, beta = 0)
 
 
 ### 위험함수
-halpha = function (x, alpha = 1, beta = 0) 
+halpha = function (x, alpha = 1, beta = 1) 
 {
-    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not positive.")    }        # beta > 0 이어야 한다.
-    if (sum((x < 0) * 1) > 0)           {        stop("x is not positive or 0.")    }       # x >= 0 이어야 한다.
+    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
+    if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
     
     fx = dalpha(x, alpha, beta) / salpha(x, alpha, beta)
     return(fx)
