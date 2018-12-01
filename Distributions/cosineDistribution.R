@@ -19,8 +19,19 @@ dcosine = function(x, mu, sigma)
 }
 
 
+### 난수 함수
+rcosine = function(n, min=-10, max=10, mu = 0, sigma = 1)
+{
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dcosine(xseq, mu=mu, sigma=sigma)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
-pcosine = function(x, mu = 1, sigma = 0)
+pcosine = function(x, mu = 0, sigma = 1)
 {
     fx = -(scosine(x, mu, sigma) - 1)
     return(fx)
@@ -28,7 +39,7 @@ pcosine = function(x, mu = 1, sigma = 0)
 
 
 ### 생존함수
-scosine = function (x, mu = 1, sigma = 0) 
+scosine = function (x, mu = 0, sigma = 1) 
 {
     fx = (1/2) * (1 - sin((x-mu)/sigma))
     return(fx)
@@ -36,7 +47,7 @@ scosine = function (x, mu = 1, sigma = 0)
 
 
 ### 위험함수
-hcosine = function (x, mu = 1, sigma = 0)
+hcosine = function (x, mu = 0, sigma = 1)
 {
     fx = dcosine(x, mu, sigma) / scosine(x, mu, sigma)
     return(fx)
@@ -47,7 +58,7 @@ hcosine = function (x, mu = 1, sigma = 0)
 
 
 ##### Plot
-plot.cosine_seq = function(x, mu = 1, sigma = 0, xlim=c(0, 10), ylim=c(0, 5), func="dcosine")
+plot.cosine_seq = function(x, mu = 0, sigma = 1, xlim=c(0, 10), ylim=c(0, 5), func="dcosine")
 {
     color=colorPalette(300)
 
