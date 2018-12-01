@@ -19,19 +19,12 @@ darcsine = function(x, alpha = 1, beta = 0)
 }
 
 
-### 분위수 함수
-qarcsine = function(x, alpha = 1, beta = 0)
-{
-    fx = alpha + (beta-alpha) * qbeta(x, 0.5, 0.5)
-    return(fx)
-}
-
-
 ### 난수 함수
-rarcsine = function(x, alpha = 1, beta = 0)
+rarcsine = function(n, min=0.1, max=10, alpha = 1, beta = 0)
 {
-    fx = alpha + (beta-alpha) * rbeta(x, 0.5, 0.5)
-    return(fx)
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=darcsine(xseq, alpha=alpha, beta=beta), replace=TRUE)
+	return(res)
 }
 
 
