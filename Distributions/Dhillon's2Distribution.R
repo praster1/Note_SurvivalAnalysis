@@ -20,6 +20,17 @@ ddhillon2 = function(x, alpha = 1, beta = 1, gamma = 1)
 }
 
 
+### 난수 함수
+rdhillon2 = function(n, min=0.1, max=1, alpha = 1, beta = 1, gamma = 1)
+{
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(ddhillon2(xseq, alpha=alpha, beta=beta, gamma=gamma)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
 pdhillon2 = function(x, alpha = 1, beta = 1, gamma = 1)
 {
