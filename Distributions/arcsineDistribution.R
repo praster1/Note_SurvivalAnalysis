@@ -22,8 +22,10 @@ darcsine = function(x, alpha = 1, beta = 0)
 ### 난수 함수
 rarcsine = function(n, min=0.1, max=10, alpha = 1, beta = 0)
 {
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
 	xseq = seq(min, max, length=1000000)
-	res = sample(xseq, size=n, prob=darcsine(xseq, alpha=alpha, beta=beta), replace=TRUE)
+	res = sample(xseq, size=n, prob=normalization(darcsine(xseq, alpha=alpha, beta=beta)), replace=TRUE)
 	return(res)
 }
 

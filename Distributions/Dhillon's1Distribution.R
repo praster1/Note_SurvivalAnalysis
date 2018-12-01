@@ -23,8 +23,10 @@ ddhillon1 = function(x, alpha = 1, beta = 1, gamma = 1)
 ### 난수 함수
 rdhillon1 = function(n, min=0, max=1, alpha = 1, beta = 1, gamma = 1)
 {
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
 	xseq = seq(min, max, length=1000000)
-	res = sample(xseq, size=n, prob=ddhillon1(xseq, alpha=alpha, beta=beta, gamma=gamma), replace=TRUE)
+	res = sample(xseq, size=n, prob=normalization(ddhillon1(xseq, alpha=alpha, beta=beta, gamma=gamma)), replace=TRUE)
 	return(res)
 }
 

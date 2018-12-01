@@ -7,19 +7,31 @@ source("colorPalette.R")
 lambda = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
 ### input varialbe
-x = seq(0, 10, length.out = 1000)
+x = seq(0.1, 10, length.out = 1000)
 
 
 ### 수명 분포
-dexponential = function(x, lambda = lambda)
+dexponential = function(x, lambda = 1)
 {
     fx = lambda * exp(-lambda * x)
     return(fx)
 }
 
 
+### 난수 함수
+rexponential = function(n, min=0.1, max=10, lambda = lambda)
+{
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dexponential(xseq, lambda = lambda)), replace=TRUE)
+	return(res)
+}
+
+
+
 ### 누적분포함수
-pexponential = function(x, lambda = lambda)
+pexponential = function(x, lambda = 1)
 {
     fx = 1 - exp(-lambda * x)
     return(fx)

@@ -33,9 +33,10 @@ dalpha = function(x, alpha = 1, beta = 1)
 ralpha = function(n, min=0.1, max=10, alpha = 1, beta = 1)
 {
     criterion_alpha(x, alpha=alpha, beta=beta)
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
 	
 	xseq = seq(min, max, length=1000000)
-	res = sample(xseq, size=n, prob=dalpha(xseq, alpha=alpha, beta=beta), replace=TRUE)
+	res = sample(xseq, size=n, prob=normalization(dalpha(xseq, alpha=alpha, beta=beta)), replace=TRUE)
 	return(res)
 }
 

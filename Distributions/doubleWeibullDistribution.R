@@ -16,8 +16,21 @@ x = seq(-10, 10, length.out = 1000)
 ddweibull(x, c=1, mu=0, sigma=1)
 
 
+
+### 난수 함수
+rdweibull = function(n, min=-10, max=1, c=1, mu=0, sigma=1)
+{
+	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(ddweibull(xseq, c=c, mu=mu, sigma=sigma)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
 pdweibull(x, c=1, mu=0, sigma=1)
+
 
 
 ### 생존함수
