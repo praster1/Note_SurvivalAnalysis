@@ -1,6 +1,6 @@
 ##### Not Completed 
 
-setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
 
 

@@ -1,7 +1,7 @@
 # https://rdrr.io/cran/shotGroups/man/maxwell.html
 
 
-setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
 require(pracma)
 

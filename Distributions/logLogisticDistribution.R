@@ -1,6 +1,6 @@
 # https://www.rdocumentation.org/packages/actuar/versions/2.3-1/topics/Loglogistic
 
-setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
 
 

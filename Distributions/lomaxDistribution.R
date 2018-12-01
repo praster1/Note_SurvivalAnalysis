@@ -1,6 +1,6 @@
 # https://www.rdocumentation.org/packages/VGAM/versions/0.7-7/topics/Lomax
 
-setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
 
 

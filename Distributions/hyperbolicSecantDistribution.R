@@ -1,6 +1,6 @@
 # https://www.rdocumentation.org/packages/VaRES/versions/1.0/topics/secant
 
-setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/RCode")
+setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
 require(pracma)
 
