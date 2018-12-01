@@ -19,7 +19,7 @@ dexponential = function(x, lambda = 1)
 
 
 ### 난수 함수
-rexponential = function(n, min=0.1, max=10, lambda = lambda)
+rexponential = function(n, min=0.1, max=10, lambda = 1)
 {
 	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
 
