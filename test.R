@@ -19,10 +19,13 @@ dhjorth = function (y, m, s, f, log = FALSE)
     tmp
 }
 
+
+# 난수함수
 qhjorth = function (p, m, s, f) 
 {
     h <- function(y) 
     {
+		# 누적분포함수에서 paramter에 i 인자를 주는 것으로 보인다.
         1 - (1 + s[i] * y)^(-f[i]/s[i]) * exp(-(y/m[i])^2/2) - p[i]
     }
     
@@ -64,7 +67,7 @@ qhjorth = function (p, m, s, f)
 }
 
 
-
+# 누적분포함수
 phjorth = function (q, m, s, f) 
 {
     if (any(q <= 0)) 
@@ -78,6 +81,7 @@ phjorth = function (q, m, s, f)
 }
 
 
+# 난수함수
 rhjorth = function (n = 1, m, s, f) 
 {
     qhjorth(runif(n), m = m, s = s, f = f)
