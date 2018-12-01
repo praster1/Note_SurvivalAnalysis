@@ -25,12 +25,8 @@ dalpha = function(x, alpha = 1, beta = 1)
 ### 난수 함수
 ralpha = function (n, alpha = 1, beta = 1, min = 0, max = 1) 
 {
-    if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }           # beta > 0 이어야 한다.
-    if (n < 0)                          {        stop("n is not negative or 0.")    }        # x >= 0 이어야 한다.
-    if (min < 0)                              {        stop("min is not negative or 0.")    }     # min >= 0이어야 한다.
-    if (min >= max)                        {        stop("max must greater than min")    }   # x >= 0 이어야 한다.
-    
-    fx = dalpha(runif(n, min, max), alpha=alpha, beta=beta)
+    vec = sort(runif(n, min, max))
+    fx = dalpha(vec, alpha=alpha, beta=beta)
     return(fx)
 }
 

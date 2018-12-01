@@ -1,6 +1,6 @@
 setwd("/home/lv999/Dropbox/Github/SurvivalAnalysis/Distributions")
 source("colorPalette.R")
-require(rmtil)
+require(rmutil)
 
 
 ##### Chi-square Distribution
