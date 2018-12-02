@@ -81,10 +81,13 @@ source("_VshapedDistribution.R")
 
 ksTest = function(dataVec)
 {
+    normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+    dataVec = normalization(dataVec)
+    
     len = length(dataVec)
     
-    withAlpha = ks.test(dataVec, ralpha(len))
-    withArcsine = ks.test(dataVec, rarcsine(len))
     
     
+    
+    return(res)
 }

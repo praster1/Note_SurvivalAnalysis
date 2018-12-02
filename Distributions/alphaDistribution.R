@@ -10,17 +10,17 @@ beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 x = seq(0.1, 10, length.out = 1000)
 
 
-criterion_alpha = function(x, alpha, beta)
-{
-	if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
-    if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
-}
+# criterion_alpha = function(x, alpha, beta)
+# {
+	# if (sum((beta <= 0) * 1) > 0)     {        stop("beta is not negative.")    }        # beta > 0 이어야 한다.
+    # if (sum((x < 0) * 1) > 0)           {        stop("x is not negative or 0.")    }       # x >= 0 이어야 한다.
+# }
 
 
 ### 수명 분포
 dalpha = function(x, alpha = 1, beta = 1) 
 {
-    criterion_alpha(x, alpha=alpha, beta=beta)
+    # criterion_alpha(x, alpha=alpha, beta=beta)
 	
     fx = (beta * exp(-(1/2) *(alpha - beta / x)^2)) / (sqrt(2 * pi) * pnorm(alpha) * x^2)
     return(fx)
@@ -30,7 +30,7 @@ dalpha = function(x, alpha = 1, beta = 1)
 ### 난수함수
 ralpha = function(n, min=0.1, max=10, alpha = 1, beta = 1)
 {
-    criterion_alpha(x, alpha=alpha, beta=beta)
+    # criterion_alpha(x, alpha=alpha, beta=beta)
 	normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
 	
 	xseq = seq(min, max, length=1000000)
@@ -42,7 +42,7 @@ ralpha = function(n, min=0.1, max=10, alpha = 1, beta = 1)
 ### 누적분포함수
 palpha = function (x, alpha = 1, beta = 1) 
 {
-    criterion_alpha(x, alpha=alpha, beta=beta)
+    # criterion_alpha(x, alpha=alpha, beta=beta)
     
     fx = pnorm(alpha - beta/x) / pnorm(alpha)
     return(fx)
@@ -52,7 +52,7 @@ palpha = function (x, alpha = 1, beta = 1)
 ### 생존함수
 salpha = function (x, alpha = 1, beta = 1) 
 {
-    criterion_alpha(x, alpha=alpha, beta=beta)
+    # criterion_alpha(x, alpha=alpha, beta=beta)
     
     fx = 1 - (pnorm(alpha - beta/x) / pnorm(alpha))
     return(fx)
@@ -62,7 +62,7 @@ salpha = function (x, alpha = 1, beta = 1)
 ### 위험함수
 halpha = function (x, alpha = 1, beta = 1) 
 {
-    criterion_alpha(x, alpha=alpha, beta=beta)
+    # criterion_alpha(x, alpha=alpha, beta=beta)
     
     fx = dalpha(x, alpha, beta) / salpha(x, alpha, beta)
     return(fx)
