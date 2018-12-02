@@ -22,6 +22,18 @@ dlomax = function(x, alpha = 1, beta = 1, gamma = 1)
 }
 
 
+### 난수 함수
+rlomax = function (n, min=0.0001, max=1, alpha = 1, beta = 1, gamma = 1) 
+{
+    normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dlomax(xseq, alpha = alpha, beta = beta, gamma = gamma)), replace=TRUE)
+	return(res)
+}
+
+
+
 ### 누적분포함수
 plomax = function(x, alpha = 1, beta = 1, gamma = 1)
 {

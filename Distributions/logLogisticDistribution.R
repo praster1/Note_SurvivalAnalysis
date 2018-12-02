@@ -22,6 +22,17 @@ dloglogistic = function(x, alpha = 1, beta = 1, gamma = 1)
 }
 
 
+### 난수 함수
+rloglogistic = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 1) 
+{
+    normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dloglogistic(xseq, alpha = alpha, beta = beta, gamma = gamma)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
 ploglogistic = function(x, alpha = 1, beta = 1, gamma = 1)
 {
