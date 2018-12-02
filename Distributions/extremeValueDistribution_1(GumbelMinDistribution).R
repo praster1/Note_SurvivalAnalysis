@@ -20,9 +20,11 @@ dgumbel_min = function (x, scale = 1, location = 0)
 
 
 ### 난수 함수
-rgumbel_min = function (x, scale = 1, location = 0) 
+rgumbel_min = function (n, min=-10, max=10, scale = 1, location = 0) 
 {
-	qgumbel_min(runif(x), scale, location)
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dgumbel_min(xseq, scale=scale, location=location)), replace=TRUE)
+	return(res)
 }
 
 
