@@ -76,3 +76,8 @@ source("_Maxwell-BoltzmannDistribution.R")
 source("_TriangularDistribution.R")
 source("_trimmedNormalDistribution.R")
 source("_VshapedDistribution.R")
+
+
+
+
+ks.test(rnorm(1000), ralpha(1000))
