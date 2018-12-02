@@ -22,6 +22,15 @@ dlfrechet = function(x, location = 0, shape = 1, scale = 1)
 }
 
 
+### 난수 함수
+rlfrechet = function (n, min=0.1, max=10, location = 0, shape = 1, scale = 1)
+{
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dlfrechet(xseq, location=location, shape=shape, scale=scale)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
 plfrechet = function(x, location = 0, shape = 1, scale = 1)
 {
