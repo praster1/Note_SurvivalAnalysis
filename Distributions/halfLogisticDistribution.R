@@ -20,7 +20,7 @@ dhalflogistic = function(x, alpha = 0, beta = 1)
 
 
 ### 난수 함수
-rhalflogistic = function (n, min=0.0001, max=1, alpha = 1, beta = 1) 
+rhalflogistic = function (n, min=0.0001, max=10, alpha = 1, beta = 1) 
 {
     normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
 
