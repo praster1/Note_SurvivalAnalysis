@@ -1,0 +1,1 @@
+# Generalized Exponential Geometric Distribution

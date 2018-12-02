@@ -1,0 +1,1 @@
+# https://www.rdocumentation.org/packages/rmutil/versions/1.1.1/topics/Generalized%20Gamma
