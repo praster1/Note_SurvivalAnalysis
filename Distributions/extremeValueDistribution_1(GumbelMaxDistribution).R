@@ -22,6 +22,8 @@ dgumbel_max = function (x, scale = 1, location = 0)
 ### 난수 함수
 rgumbel_max = function (n, min=-10, max=10, scale = 1, location = 0) 
 {
+    normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
 	xseq = seq(min, max, length=1000000)
 	res = sample(xseq, size=n, prob=normalization(dgumbel_max(xseq, scale=scale, location=location)), replace=TRUE)
 	return(res)
