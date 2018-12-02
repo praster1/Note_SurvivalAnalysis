@@ -19,6 +19,17 @@ dparabolicUshaped = function(x, alpha = 0, beta = 1)
 }
 
 
+### 난수 함수
+rparabolicUshaped = function (n, min=-10, max=10, alpha = 1, beta = 1) 
+{
+    normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
+
+	xseq = seq(min, max, length=1000000)
+	res = sample(xseq, size=n, prob=normalization(dparabolicUshaped(xseq, alpha = alpha, beta = beta)), replace=TRUE)
+	return(res)
+}
+
+
 ### 누적분포함수
 pparabolicUshaped = function(x, alpha = 0, beta = 1)
 {
