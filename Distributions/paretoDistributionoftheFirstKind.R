@@ -21,7 +21,7 @@ dpareto1 = function(x, alpha = 1, beta = 1, gamma = 1)
 
 
 ### 난수 함수
-rpareto1 = function (n, min=0.0001, max=10, alpha = 1, beta = 2, gamma = 1) 
+rpareto1 = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 2)
 {
     normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
 
