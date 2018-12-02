@@ -79,5 +79,12 @@ source("_VshapedDistribution.R")
 
 
 
-
-ks.test(rnorm(1000), ralpha(1000))
+ksTest = function(dataVec)
+{
+    len = length(dataVec)
+    
+    withAlpha = ks.test(dataVec, ralpha(len))
+    withArcsine = ks.test(dataVec, rarcsine(len))
+    
+    
+}
