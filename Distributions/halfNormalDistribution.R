@@ -2,7 +2,7 @@ source("colorPalette.R")
 require(extraDistr)
 
 
-##### Chi-square Distribution
+##### Half-normal Distribution
 ### parameter
 sigma = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 
