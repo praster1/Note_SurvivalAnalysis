@@ -1,20 +1,4 @@
 # Not Completed
-
-
-source("colorPalette.R")
-require(actuar)
-
-
-##### Gamma Distribution with Location Parameters
-### parameter
-location = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
-shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-
-### input varialbe
-x = seq(0.1, 10, length.out = 1000)
-
-
 ### 수명 분포
 dgamma3 = function(x, shape=shape, scale=scale, location=location)
 {

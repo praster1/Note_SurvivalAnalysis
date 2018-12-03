@@ -1,29 +1,19 @@
-source("colorPalette.R")
 require(EnvStats)
 
-
-##### Chi Distribution
-### parameter
-df = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-
-### input varialbe
-x = seq(0.1, 10, length.out = 1000)
-
-
 ### 수명 분포
-dchi(x, df = df)
+# dchi(x, df = df)
 
 
 ### 분위수 함수
-qchi(x, df = df)
+# qchi(x, df = df)
 
 
 ### 난수 함수
-rchi(x, df = df)
+# rchi(x, df = df)
 
 
 ### 누적분포함수
-pchi(x, df = df)
+# pchi(x, df = df)
 
 
 ### 생존함수

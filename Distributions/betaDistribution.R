@@ -1,29 +1,17 @@
-source("colorPalette.R")
-
-
-##### Beta Distribution
-### parameter
-alpha = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-
-### input varialbe
-x = seq(0.1, 1, length.out = 1000)
-
-
 ### 수명 분포
-dbeta(x, alpha, beta)
+# dbeta(x, alpha, beta)
 
 
 ### 분위수 함수
-qbeta(x, alpha, beta)
+# qbeta(x, alpha, beta)
 
 
 ### 난수 함수
-rbeta(x, alpha, beta)
+# rbeta(x, alpha, beta)
 
 
 ### 누적분포함수
-pbeta(x, alpha, beta)
+# pbeta(x, alpha, beta)
 
 
 ### 생존함수
