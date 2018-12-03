@@ -395,27 +395,24 @@ ksTest = function(dataVec)
         print(paste("Test with Half-Cahchy Distribution : i = ", i, " / ", length(sigma_HalfCauchy), sep=""))
         
         # Half-normal Distribution
-        randVec = rhnorm(dataLen, sigma = sigma_HalfNormal)
+        randVec = rhnorm(dataLen, sigma = sigma_HalfNormal[i])
         resHalfNormal[[i]] = ks.test(dataVec, randVec)
         print(paste("Test with Half-normal Distribution : i = ", i, " / ", length(sigma_HalfNormal), sep=""))
         
+        # makeham Distribution
+        randVec = rmakeham(dataLen, sigma = sigma_HalfNormal[i])
+        resMakeham[[i]] = ks.test(dataVec, randVec)
+        print(paste("Test with Makeham Distribution : i = ", i, " / ", length(theta_Makeham), sep=""))
+
+        # Rayleigh Distribution
+        randVec = rrayleigh(dataLen, scale = scale_Rayleigh[i])
+        resRayleigh[[i]] = ks.test(dataVec, randVec)
+        print(paste("Test with Rayleigh Distribution : i = ", i, " / ", length(scale_Rayleigh), sep=""))
         
-        
-
-        # makeham Distribution          # rmakeham(x, shape = theta)
-        resMakeham = NULL; 
-        theta_Makeham = seq(0.01, 10, length=parameterLen)
-
-        # Rayleigh Distribution         # rrayleigh(x, scale = scale)
-        resRayleigh = NULL;   
-        scale_Rayleigh = seq(0.01, 10, length=parameterLen)
-
-        # t Distribution           # rt(x, df = df)
-        resT = NULL; 
-        df_T = seq(0.01, 10, length=parameterLen)
-    
-    
-    
+        # t Distribution
+        randVec = rrayleigh(dataLen, df = df_T[i])
+        resT[[i]] = ks.test(dataVec, randVec)
+        print(paste("Test with t Distribution : i = ", i, " / ", length(df_T), sep=""))
         
         
         for (j in 1:parameterLen)
@@ -429,40 +426,38 @@ ksTest = function(dataVec)
             if (alpha_Arcsine[i] != beta_Arcsine[j])
             {
                 randVec = rarcsine(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Arcsine[i], beta=beta_Arcsine[j])
-                resArcsine[[i]][[j]] = ks.test(dataVec, randVec)
-                print(paste("Test with Arcsine Distribution : i = ", i, " / ", length(resArcsine), "     j = ", j, " / ", length(beta_Arcsine), sep=""))
+                resBeta[[i]][[j]] = ks.test(dataVec, randVec)
+                print(paste("Test with Arcsine Distribution : i = ", i, " / ", length(alpha_Arcsine), "     j = ", j, " / ", length(beta_Arcsine), sep=""))
             }
             
             # Beta Distribution
+            randVec = rbeta(dataLen, alpha=alpha_Beta[i], beta=beta_Beta[j])
+            resAlpha[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Alpha Distribution : i = ", i, " / ", length(alpha_Beta), "     j = ", j, " / ", length(beta_Beta), sep=""))
             
-            # Birnbaum-Saunders Distribution        # rfatigue(x, alpha, beta, mu = 0)
+            # Birnbaum-Saunders Distribution
+            randVec = rfatigue(dataLen, alpha=alpha_BirnbaumSaunders[i], beta=beta_BirnbaumSaunders[j], mu=0)
+            resBirnbaumSaunders[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Birnbaum-Saunders Distribution : i = ", i, " / ", length(alpha_BirnbaumSaunders), "     j = ", j, " / ", length(beta_BirnbaumSaunders), sep=""))
             
-            
-                       
-            # Beta
-            resBeta = NULL;   
-            alpha_Beta = seq(0.01, 10, length=parameterLen);  
-            beta_Beta = seq(0.01, 10, length=parameterLen)
-            
-            # Birnbaum-Saunders Distribution        # rfatigue(x, alpha, beta, mu = 0)
-            resBirnbaumSaunders = NULL;   
-            alpha_BirnbaumSaunders = seq(0.01, 10, length=parameterLen); 
-            beta_BirnbaumSaunders = seq(0.01, 10, length=parameterLen)
-            
-            # Burr Distribution         # rburr(x, a=alpha, k=beta)
-            resBurr = NULL;
-            alpha_Burr = seq(0.01, 10, length=parameterLen);  
-            beta_Burr = seq(0.01, 10, length=parameterLen)
-            
+            # Burr Distribution
+            randVec = rburr(dataLen, alpha=alpha_Burr[i], beta=beta_Burr[j])
+            resBurr[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Alpha Distribution : i = ", i, " / ", length(alpha_Burr), "     j = ", j, " / ", length(beta_Burr), sep=""))
+
             # Cauchy Distribution       # rcauchy(x, location, scale)
-            resCauchy = NULL; 
-            location_Cauchy = seq(-1, 1, length=parameterLen); 
-            scale_Cauchy = seq(0.01, 10, length=parameterLen)
+            randVec = rcauchy(dataLen, location=location_Cauchy[i], scale=scale_Cauchy[j])
+            resCauchy[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Cauchy Distribution : i = ", i, " / ", length(location_Cauchy), "     j = ", j, " / ", length(scale_Cauchy), sep=""))
+
+            # Cosine Distribution
+            randVec = rarcsine(dataLen, min=min(dataVec), max=max(dataVec), mu=mu_Cosine[i], sigma=sigma_Cosine[j])
+            resCosine[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Cosine Distribution : i = ", i, " / ", length(mu_Cosine), "     j = ", j, " / ", length(sigma_Cosine), sep=""))
+
             
-            # Cosine Distribution           # rcosine = function(n, min=-10, max=10, mu = 0, sigma = 1)
-            resCosine = NULL;  
-            mu_Cosine = seq(-1, 1, length=parameterLen);
-            sigma_Cosine = seq(0.01, 10, length=parameterLen)
+            
+            
             
             # Exponential Distribution with Location Parameter      # rlexponential = function(n, min=0.1, max=1, alpha = 1, beta = 1)
             resLexponential = NULL;
