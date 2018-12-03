@@ -79,9 +79,14 @@ source("_VshapedDistribution.R")
 
 
 
-ksTest = function(dataVec)
+
+
+ksTest = function(dataVec = NULL)
 {
-    dataVec = rnorm(1000)
+	if(is.null(dataVec))
+	{
+		dataVec = rnorm(1000)
+	}
 
     normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
     dataVec = normalization(dataVec) + abs(rnorm(dataVec, 0, 0.0001))
@@ -168,7 +173,7 @@ ksTest = function(dataVec)
     # 극치 분포: Gumbel 최소값 분포          # rgumbel_min = function (n, min=-10, max=10, scale = 1, location = 0) 
     resGumbel_min = NULL; 
     location_Gumbel_min = seq(-1, 1, length=parameterLen);  
-    scale_Gumbel_min = seq(0.01, 10, length=parameterLen)
+    scale_Gumbel_min = seq(1, 10, length=parameterLen)
     
     # F Distribution                # rf(x, df1 = df1, df2 = df2)
     resF = NULL;   
@@ -197,7 +202,7 @@ ksTest = function(dataVec)
     
     # Inverse-Normal Distribution           # rinvgauss(x, m = 1, s = 1)
     resInverseNormal = NULL;
-    m_InverseNormal = seq(0.01, 10, length=parameterLen);   
+    m_InverseNormal = seq(1, 10, length=parameterLen);   
     s_InverseNormal = seq(0.01, 10, length=parameterLen)
     
     # laplace Distribution          # rlaplace(x, m = 0, s = 1)
@@ -222,8 +227,8 @@ ksTest = function(dataVec)
     
     # logweibull Distribution   
     resLogweibull = NULL;   
-    alpha_Logweibull = seq(-1, 1, length=parameterLen); 
-    beta_Logweibull = seq(0.01, 10, length=parameterLen)
+    alpha_Logweibull = seq(0.01, 10, length=parameterLen); 
+    beta_Logweibull = seq(-1, 1, length=parameterLen)
     
     # Normal Distribution           # rnorm(x, mean = mean, sd = sd)
     resNormal = NULL;   
@@ -402,17 +407,17 @@ ksTest = function(dataVec)
         print(paste("Test with Half-normal Distribution : i = ", i, " / ", length(sigma_HalfNormal), sep=""))
         
         # makeham Distribution
-        randVec = rmakeham(dataLen, sigma = sigma_HalfNormal[i])
+        randVec = rmakeham(dataLen, shape = theta_Makeham[i])
         resMakeham[[i]] = ks.test(dataVec, randVec)
         print(paste("Test with Makeham Distribution : i = ", i, " / ", length(theta_Makeham), sep=""))
 
         # Rayleigh Distribution
-        randVec = rrayleigh(dataLen, scale = scale_Rayleigh[i])
+        randVec = rrayleigh(dataLen, sigma = scale_Rayleigh[i])
         resRayleigh[[i]] = ks.test(dataVec, randVec)
         print(paste("Test with Rayleigh Distribution : i = ", i, " / ", length(scale_Rayleigh), sep=""))
         
         # t Distribution
-        randVec = rrayleigh(dataLen, df = df_T[i])
+        randVec = rt(dataLen, df = df_T[i])
         resT[[i]] = ks.test(dataVec, randVec)
         print(paste("Test with t Distribution : i = ", i, " / ", length(df_T), sep=""))
         
@@ -433,9 +438,9 @@ ksTest = function(dataVec)
             }
             
             # Beta Distribution
-            randVec = rbeta(dataLen, alpha=alpha_Beta[i], beta=beta_Beta[j])
+            randVec = rbeta(dataLen, shape1=alpha_Beta[i], shape2=beta_Beta[j])
             resAlpha[[i]][[j]] = ks.test(dataVec, randVec)
-            print(paste("Test with Alpha Distribution : i = ", i, " / ", length(alpha_Beta), "     j = ", j, " / ", length(beta_Beta), sep=""))
+            print(paste("Test with Beta Distribution : i = ", i, " / ", length(alpha_Beta), "     j = ", j, " / ", length(beta_Beta), sep=""))
             
             # Birnbaum-Saunders Distribution
             randVec = rfatigue(dataLen, alpha=alpha_BirnbaumSaunders[i], beta=beta_BirnbaumSaunders[j], mu=0)
@@ -443,9 +448,9 @@ ksTest = function(dataVec)
             print(paste("Test with Birnbaum-Saunders Distribution : i = ", i, " / ", length(alpha_BirnbaumSaunders), "     j = ", j, " / ", length(beta_BirnbaumSaunders), sep=""))
             
             # Burr Distribution
-            randVec = rburr(dataLen, alpha=alpha_Burr[i], beta=beta_Burr[j])
+            randVec = rburr(dataLen, a=alpha_Burr[i], k=beta_Burr[j])
             resBurr[[i]][[j]] = ks.test(dataVec, randVec)
-            print(paste("Test with Alpha Distribution : i = ", i, " / ", length(alpha_Burr), "     j = ", j, " / ", length(beta_Burr), sep=""))
+            print(paste("Test with Burr Distribution : i = ", i, " / ", length(alpha_Burr), "     j = ", j, " / ", length(beta_Burr), sep=""))
 
             # Cauchy Distribution       # rcauchy(x, location, scale)
             randVec = rcauchy(dataLen, location=location_Cauchy[i], scale=scale_Cauchy[j])
@@ -453,7 +458,7 @@ ksTest = function(dataVec)
             print(paste("Test with Cauchy Distribution : i = ", i, " / ", length(location_Cauchy), "     j = ", j, " / ", length(scale_Cauchy), sep=""))
 
             # Cosine Distribution
-            randVec = rarcsine(dataLen, min=min(dataVec), max=max(dataVec), mu=mu_Cosine[i], sigma=sigma_Cosine[j])
+            randVec = rcosine(dataLen, min=min(dataVec), max=max(dataVec), mu=mu_Cosine[i], sigma=sigma_Cosine[j])
             resCosine[[i]][[j]] = ks.test(dataVec, randVec)
             print(paste("Test with Cosine Distribution : i = ", i, " / ", length(mu_Cosine), "     j = ", j, " / ", length(sigma_Cosine), sep=""))
 
@@ -473,7 +478,7 @@ ksTest = function(dataVec)
             print(paste("Test with Gumbel 최소값 분포 : i = ", i, " / ", length(location_Gumbel_min), "     j = ", j, " / ", length(scale_Gumbel_min), sep=""))
 		  
 			# F Distribution
-			randVec = rf(dataLen, alpha=df1_F[i], beta=df2_F[j])
+			randVec = rf(dataLen, df1=df1_F[i], df2=df2_F[j])
             resF[[i]][[j]] = ks.test(dataVec, randVec)
             print(paste("Test with F Distribution : i = ", i, " / ", length(df1_F), "     j = ", j, " / ", length(df2_F), sep=""))
 		  
@@ -498,12 +503,12 @@ ksTest = function(dataVec)
             print(paste("Test with hyperbolicsecant Distribution : i = ", i, " / ", length(alpha_Hyperbolicsecant), "     j = ", j, " / ", length(beta_Hyperbolicsecant), sep=""))
 			
             # Inverse-Normal Distribution
-			randVec = rinvgauss(dataLen, min=min(dataVec), max=max(dataVec), m=m_InverseNormal[i], s=s_InverseNormal[j])
+			randVec = rinvgauss(dataLen, m=m_InverseNormal[i], s=s_InverseNormal[j])
             resInverseNormal[[i]][[j]] = ks.test(dataVec, randVec)
             print(paste("Test with Inverse-Normal Distribution : i = ", i, " / ", length(m_InverseNormal), "     j = ", j, " / ", length(s_InverseNormal), sep=""))
             
             # laplace Distribution
-			randVec = rlaplace(dataLen, min=min(dataVec), max=max(dataVec), m=m_Laplace[i], s=s_Laplace[j])
+			randVec = rlaplace(dataLen, m=m_Laplace[i], s=s_Laplace[j])
             resLaplace[[i]][[j]] = ks.test(dataVec, randVec)
             print(paste("Test with Laplace Distribution : i = ", i, " / ", length(m_Laplace), "     j = ", j, " / ", length(s_Laplace), sep=""))
 			
@@ -553,9 +558,9 @@ ksTest = function(dataVec)
             print(paste("Test with Reflexted Exponential Distribution : i = ", i, " / ", length(alpha_Rexponential), "     j = ", j, " / ", length(beta_Rexponential), sep=""))
 			
 			# semielliptical Distribution
-			randVec = rsemielliptical(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Semielliptical[i], beta=beta_Semielliptical[j])
-            resSemielliptical[[i]][[j]] = ks.test(dataVec, randVec)
-            print(paste("Test with semi-elliptical Distribution : i = ", i, " / ", length(alpha_Semielliptical), "     j = ", j, " / ", length(beta_Semielliptical), sep=""))
+			# randVec = rsemielliptical(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Semielliptical[i], beta=beta_Semielliptical[j])
+            # resSemielliptical[[i]][[j]] = ks.test(dataVec, randVec)
+            # print(paste("Test with semi-elliptical Distribution : i = ", i, " / ", length(alpha_Semielliptical), "     j = ", j, " / ", length(beta_Semielliptical), sep=""))
             
 			# teisser Distribution
 			randVec = rteisser(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Teisser[i], beta=beta_Teisser[j])
@@ -699,7 +704,7 @@ ksTest = function(dataVec)
 		resParabolicUshaped = resParabolicUshaped,			# parabolicUshaped Distribution
 		resRcosine = resRcosine,			# rcosine Distribution
 		resRexponential = resRexponential,			# Reflexted Exponential Distribution
-		resSemielliptical = resSemielliptical,			# semielliptical Distribution
+		# resSemielliptical = resSemielliptical,			# semielliptical Distribution
 		resTeisser = resTeisser,			# teisser Distribution
 		resUnif = resUnif,				# unif2 Distribution
 		resWeibull = resWeibull,				# weibull Distribution with 2 Parameters
@@ -724,3 +729,6 @@ ksTest = function(dataVec)
     
     return(res)
 }
+
+
+res = ksTest(rnorm(1000))
