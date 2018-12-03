@@ -1,17 +1,17 @@
 ### 수명 분포
-dlogis(x, location, scale)
+# dlogis(x, location, scale)
 
 
 ### 분위수 함수
-qlogis(x, location, scale)
+# qlogis(x, location, scale)
 
 
 ### 난수 함수
-rlogis(x, location, scale)
+# rlogis(x, location, scale)
 
 
 ### 누적분포함수
-plogis(x, location, scale)
+# plogis(x, location, scale)
 
 
 ### 생존함수

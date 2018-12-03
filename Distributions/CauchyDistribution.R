@@ -1,17 +1,17 @@
 ### 수명 분포
-dcauchy(x, location, scale)
+# dcauchy(x, location, scale)
 
 
 ### 분위수 함수
-qcauchy(x, location, scale)
+# qcauchy(x, location, scale)
 
 
 ### 난수 함수
-rcauchy(x, location, scale)
+# rcauchy(x, location, scale)
 
 
 ### 누적분포함수
-pcauchy(x, location, scale)
+# pcauchy(x, location, scale)
 
 
 ### 생존함수

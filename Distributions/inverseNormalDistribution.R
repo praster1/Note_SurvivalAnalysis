@@ -1,19 +1,19 @@
 require(rmutil)
 
 ### 수명 분포
-dinvgauss(x, m = 1, s = 1)
+# dinvgauss(x, m = 1, s = 1)
 
 
 ### 분위수 함수
-qinvgauss(x, m = 1, s = 1)
+# qinvgauss(x, m = 1, s = 1)
 
 
 ### 난수 함수
-rinvgauss(x, m = 1, s = 1)
+# rinvgauss(x, m = 1, s = 1)
 
 
 ### 누적분포함수
-pinvgauss(x, m = 1, s = 1)
+# pinvgauss(x, m = 1, s = 1)
 
 
 ### 생존함수

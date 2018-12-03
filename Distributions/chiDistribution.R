@@ -1,19 +1,19 @@
 require(EnvStats)
 
 ### 수명 분포
-dchi(x, df = df)
+# dchi(x, df = df)
 
 
 ### 분위수 함수
-qchi(x, df = df)
+# qchi(x, df = df)
 
 
 ### 난수 함수
-rchi(x, df = df)
+# rchi(x, df = df)
 
 
 ### 누적분포함수
-pchi(x, df = df)
+# pchi(x, df = df)
 
 
 ### 생존함수

@@ -1,23 +1,19 @@
 require(extraDistr)
 
-### input varialbe
-x = seq(0.1, 10, length.out = 1000)
-
-
 ### 수명 분포
-dhcauchy(x, sigma = sigma)
+# dhcauchy(x, sigma = sigma)
 
 
 ### 분위수 함수
-qhcauchy(x, sigma = sigma)
+# qhcauchy(x, sigma = sigma)
 
 
 ### 난수 함수
-rhcauchy(x, sigma = sigma)
+# rhcauchy(x, sigma = sigma)
 
 
 ### 누적분포함수
-phcauchy(x, sigma = sigma)
+# phcauchy(x, sigma = sigma)
 
 
 ### 생존함수

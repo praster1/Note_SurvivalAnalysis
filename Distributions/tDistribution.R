@@ -1,17 +1,17 @@
 ### 수명 분포
-dt(x, df = df)
+# dt(x, df = df)
 
 
 ### 분위수 함수
-qt(x, df = df)
+# qt(x, df = df)
 
 
 ### 난수 함수
-rt(x, df = df)
+# rt(x, df = df)
 
 
 ### 누적분포함수
-pt(x, df = df)
+# pt(x, df = df)
 
 
 ### 생존함수

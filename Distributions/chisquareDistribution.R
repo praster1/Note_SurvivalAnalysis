@@ -1,17 +1,17 @@
 ### 수명 분포
-dchisq(x, df = df)
+# dchisq(x, df = df)
 
 
 ### 분위수 함수
-qchisq(x, df = df)
+# qchisq(x, df = df)
 
 
 ### 난수 함수
-rchisq(x, df = df)
+# rchisq(x, df = df)
 
 
 ### 누적분포함수
-pchisq(x, df = df)
+# pchisq(x, df = df)
 
 
 ### 생존함수

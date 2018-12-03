@@ -1,17 +1,17 @@
 ### 수명 분포
-dnorm(x, mean = mean, sd = sd)
+# dnorm(x, mean = mean, sd = sd)
 
 
 ### 분위수 함수
-qnorm(x, mean = mean, sd = sd)
+# qnorm(x, mean = mean, sd = sd)
 
 
 ### 난수 함수
-rnorm(x, mean = mean, sd = sd)
+# rnorm(x, mean = mean, sd = sd)
 
 
 ### 누적분포함수
-pnorm(x, mean = mean, sd = sd)
+# pnorm(x, mean = mean, sd = sd)
 
 
 ### 생존함수

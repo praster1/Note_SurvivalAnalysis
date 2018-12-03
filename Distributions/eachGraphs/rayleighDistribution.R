@@ -1,5 +1,5 @@
-
 source("colorPalette.R")
+require("VGAM")
 
 
 ##### Rayleigh Distribution

@@ -1,17 +1,17 @@
 ### 수명 분포
-dlnorm(x, meanlog = meanlog, sdlog = sdlog)
+# dlnorm(x, meanlog = meanlog, sdlog = sdlog)
 
 
 ### 분위수 함수
-qlnorm(x, meanlog = meanlog, sdlog = sdlog)
+# qlnorm(x, meanlog = meanlog, sdlog = sdlog)
 
 
 ### 난수 함수
-rlnorm(x, meanlog = meanlog, sdlog = sdlog)
+# rlnorm(x, meanlog = meanlog, sdlog = sdlog)
 
 
 ### 누적분포함수
-plnorm(x, meanlog = meanlog, sdlog = sdlog)
+# plnorm(x, meanlog = meanlog, sdlog = sdlog)
 
 
 ### 생존함수

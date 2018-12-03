@@ -1,19 +1,19 @@
 require(rmutil)
 
 ### 수명 분포
-dhjorth(x, m = 1, s = 1, f = 1)
+# dhjorth(x, m = 1, s = 1, f = 1)
 
 
 ### 분위수 함수
-qhjorth(x, m = 1, s = 1, f = 1)
+# qhjorth(x, m = 1, s = 1, f = 1)
 
 
 ### 난수 함수
-rhjorth(x, m = 1, s = 1, f = 1)
+# rhjorth(x, m = 1, s = 1, f = 1)
 
 
 ### 누적분포함수
-phjorth(x, m = 1, s = 1, f = 1)
+# phjorth(x, m = 1, s = 1, f = 1)
 
 
 ### 생존함수

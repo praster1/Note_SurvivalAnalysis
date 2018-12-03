@@ -1,19 +1,19 @@
 require(extremefit)
 
 ### 수명 분포
-rburr(x, a=alpha, k=beta)
+# rburr(x, a=alpha, k=beta)
 
 
 ### 분위수 함수
-qburr(x, a=alpha, k=beta)
+# qburr(x, a=alpha, k=beta)
 
 
 ### 난수 함수
-rburr(x, a=alpha, k=beta)
+# rburr(x, a=alpha, k=beta)
 
 
 ### 누적분포함수
-pburr(x, a=alpha, k=beta)
+# pburr(x, a=alpha, k=beta)
 
 
 ### 생존함수

@@ -1,7 +1,7 @@
 require(VaRES)
 
 ### 수명 분포
-ddweibull(x, c=1, mu=0, sigma=1)
+# ddweibull(x, c=1, mu=0, sigma=1)
 
 
 
@@ -17,7 +17,7 @@ rdweibull = function(n, min=-10, max=1, c=1, mu=0, sigma=1)
 
 
 ### 누적분포함수
-pdweibull(x, c=1, mu=0, sigma=1)
+# pdweibull(x, c=1, mu=0, sigma=1)
 
 
 
