@@ -91,118 +91,179 @@ ksTest = function(dataVec)
     
     ### 1 parameter
     ##### Chi-square Distribution       # rchisq(x, df = df)
-    resChisq = NULL;    df_chisq = seq(0.01, 10, length=parameterLen)
+    resChisq = NULL;   
+    df_chisq = seq(0.01, 10, length=parameterLen)
 
     ##### Exponential Distribution              # rexponential = function(n, min=0.1, max=10, lambda = 1)
-    resExponential = NULL;  lambda_exponential = seq(0.01, 10, length=parameterLen)
+    resExponential = NULL;
+    lambda_exponential = seq(0.01, 10, length=parameterLen)
 
     ##### half-Cahchy Distribution          # rhcauchy(x, sigma = sigma)
-    resHalfCauchy = NULL;   sigma_halfCauchy = seq(0.01, 10, length=parameterLen)
+    resHalfCauchy = NULL; 
+    sigma_halfCauchy = seq(0.01, 10, length=parameterLen)
 
     ##### Half-normal Distribution           # rhnorm(x, sigma = 1)
-    resHalfNormal = NULL;   sigma_halfNormal = seq(0.01, 10, length=parameterLen)
+    resHalfNormal = NULL;   
+    sigma_halfNormal = seq(0.01, 10, length=parameterLen)
 
     ##### makeham Distribution          # rmakeham(x, shape = theta)
-    resMakeham = NULL;  theta_makeham = seq(0.01, 10, length=parameterLen)
+    resMakeham = NULL; 
+    theta_makeham = seq(0.01, 10, length=parameterLen)
 
     ##### Rayleigh Distribution         # rrayleigh(x, scale = scale)
-    resRayleigh = NULL;     scale_rayleigh = seq(0.01, 10, length=parameterLen)
+    resRayleigh = NULL;   
+    scale_rayleigh = seq(0.01, 10, length=parameterLen)
 
     ##### t Distribution           # rt(x, df = df)
-    resT = NULL;    df_t = seq(0.01, 10, length=parameterLen)
+    resT = NULL; 
+    df_t = seq(0.01, 10, length=parameterLen)
 
-    
     
     ### 2 parameters
     # Alpha
-    resAlpha = NULL;    alpha_Alpha = seq(-1, 1, length=parameterLen);  beta_Alpha = seq(0.01, 10, length=parameterLen)
+    resAlpha = NULL; 
+    alpha_Alpha = seq(-1, 1, length=parameterLen);  
+    beta_Alpha = seq(0.01, 10, length=parameterLen)
+    
     # Arcsine
-    resArcsine = NULL;  alpha_Arcsine = seq(-1, 1, length=parameterLen);    beta_Arcsine = seq(0.01, 10, length=parameterLen)
+    resArcsine = NULL; 
+    alpha_Arcsine = seq(-1, 1, length=parameterLen); 
+    beta_Arcsine = seq(0.01, 10, length=parameterLen)
+    
     # Beta
-    resBeta = NULL;     alpha_Beta = seq(0.01, 10, length=parameterLen);   beta_Beta = seq(0.01, 10, length=parameterLen)
+    resBeta = NULL;   
+    alpha_Beta = seq(0.01, 10, length=parameterLen);  
+    beta_Beta = seq(0.01, 10, length=parameterLen)
+    
     # Birnbaum-Saunders Distribution        # rfatigue(x, alpha, beta, mu = 0)
-    resBirnbaumSaunders = NULL;     alpha = seq(0.01, 10, length=parameterLen); beta = seq(0.01, 10, length=parameterLen)
+    resBirnbaumSaunders = NULL;   
+    alpha_BirnbaumSaunders = seq(0.01, 10, length=parameterLen); 
+    beta_BirnbaumSaunders = seq(0.01, 10, length=parameterLen)
+    
     # Burr Distribution         # rburr(x, a=alpha, k=beta)
-    resBurr = NULL; alpha_Burr = seq(0.01, 10, length=parameterLen);    beta_Burr = seq(0.01, 10, length=parameterLen)
+    resBurr = NULL;
+    alpha_Burr = seq(0.01, 10, length=parameterLen);  
+    beta_Burr = seq(0.01, 10, length=parameterLen)
+    
     # Cauchy Distribution       # rcauchy(x, location, scale)
-    resCauchy = NULL;   location_Cauchy = seq(-1, 1, length=parameterLen);  scale_Cauchy = seq(0.01, 10, length=parameterLen)
+    resCauchy = NULL; 
+    location_Cauchy = seq(-1, 1, length=parameterLen); 
+    scale_Cauchy = seq(0.01, 10, length=parameterLen)
+    
     ##### Cosine Distribution           # rcosine = function(n, min=-10, max=10, mu = 0, sigma = 1)
-    resCosine = NULL;   mu_Cosine = seq(-1, 1, length=parameterLen);    sigma_Cosine = seq(0.01, 10, length=parameterLen)
+    resCosine = NULL;  
+    mu_Cosine = seq(-1, 1, length=parameterLen);
+    sigma_Cosine = seq(0.01, 10, length=parameterLen)
+    
     ##### Exponential Distribution with Location Parameter      # rlexponential = function(n, min=0.1, max=1, alpha = 1, beta = 1)
-    resLexponential = NULL; alpha_Lexponential = seq(-1, 1, length=parameterLen);   beta_Lexponential = seq(0.01, 10, length=parameterLen)
+    resLexponential = NULL;
+    alpha_Lexponential = seq(-1, 1, length=parameterLen);   
+    beta_Lexponential = seq(0.01, 10, length=parameterLen)
+    
     ##### 극치 분포: Gumbel 최대값 분포          # rgumbel_max = function (n, min=-10, max=10, scale = 1, location = 0) 
-    resGumbel_max = NULL;   location_Gumbel_max = seq(-1, 1, length=parameterLen);  scale_Gumbel_max = seq(0.01, 10, length=parameterLen)
+    resGumbel_max = NULL;  
+    location_Gumbel_max = seq(-1, 1, length=parameterLen); 
+    scale_Gumbel_max = seq(0.01, 10, length=parameterLen)
+    
     ##### 극치 분포: Gumbel 최소값 분포          # rgumbel_min = function (n, min=-10, max=10, scale = 1, location = 0) 
-    resGumbel_min = NULL;   location_Gumbel_min = seq(-1, 1, length=parameterLen);  scale_Gumbel_min = seq(0.01, 10, length=parameterLen)
+    resGumbel_min = NULL; 
+    location_Gumbel_min = seq(-1, 1, length=parameterLen);  
+    scale_Gumbel_min = seq(0.01, 10, length=parameterLen)
+    
     ##### F Distribution                # rf(x, df1 = df1, df2 = df2)
-    resF = NULL;    df1_F = seq(0.01, 10, length=parameterLen); df2_F = seq(0.01, 10, length=parameterLen)
+    resF = NULL;   
+    df1_F = seq(0.01, 10, length=parameterLen); 
+    df2_F = seq(0.01, 10, length=parameterLen)
+    
     ##### Gamma Distribution        # rgamma2 = function(x, shape=shape, scale=scale)
-    resGamma2 = NULL;   shape_Gamma2 = seq(0.01, 10, length=parameterLen);  scale_Gamma2 = seq(0.01, 10, length=parameterLen)
+    resGamma2 = NULL;  
+    shape_Gamma2 = seq(0.01, 10, length=parameterLen);  
+    scale_Gamma2 = seq(0.01, 10, length=parameterLen)
+    
     ##### Gompertz Distribution         # rgompertz = function (n, min=0.0001, max=1, alpha = 1, beta = 1) 
-    resGompertz = NULL; alpha_Gompertz = seq(0.01, 10, length=parameterLen); beta_Gompertz = seq(0.01, 10, length=parameterLen)
+    resGompertz = NULL; 
+    alpha_Gompertz = seq(0.01, 10, length=parameterLen); 
+    beta_Gompertz = seq(0.01, 10, length=parameterLen)
+    
     ##### Half-logistic Distribution            # rhalflogistic = function (n, min=0.0001, max=10, alpha = 1, beta = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)		# s (beta)
-
+    resHalfLogistic = NULL; 
+    alpha_HalfLogistic = seq(-1, 1, length=parameterLen);  
+    beta_HalfLogistic = seq(0.01, 10, length=parameterLen)
+    
     ##### hyperbolicsecant Distribution     # rhyperbolicsecant = function (n, min=-10, max=10, alpha = 1, beta = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-
-    ##### Chi-square Distribution           # rinvgauss(x, m = 1, s = 1)
-    m = seq(0.01, 10, length=parameterLen)
-    s = seq(0.01, 10, length=parameterLen)
-
+    resHyperbolicsecant = NULL;
+    alpha_Hyperbolicsecant = seq(-1, 1, length=parameterLen); 
+    beta_Hyperbolicsecant = seq(0.01, 10, length=parameterLen)
+    
+    ##### Inverse-Normal Distribution           # rinvgauss(x, m = 1, s = 1)
+    resInverseNormal = NULL;
+    m_InverseNormal = seq(0.01, 10, length=parameterLen);   
+    s_InverseNormal = seq(0.01, 10, length=parameterLen)
+    
     ##### laplace Distribution          # rlaplace(x, m = 0, s = 1)
-    m = seq(-1, 1, length=parameterLen)
-    s = seq(0.01, 10, length=parameterLen)
-
+    resLaplace = NULL;  
+    m_Laplace = seq(-1, 1, length=parameterLen);  
+    s_Laplace = seq(0.01, 10, length=parameterLen)
+    
     ##### 선형 증가 분포          # rlinearFR = function (n, min=0.0001, max=10, alpha = 1, beta = 1) 
-    alpha = seq(0.01, 10, length=parameterLen)	# m (delta)
-    beta = seq(0.01, 10, length=parameterLen)		# s (beta)
+    resLinearFR = NULL;  
+    alpha_LinearFR = seq(0.01, 10, length=parameterLen);  
+    beta_LinearFR = seq(0.01, 10, length=parameterLen)
     
     ##### Logistic Distribution         # rlogis(x, location, scale)
-    location = seq(-1, 1, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
-
+    resLogistic = NULL;   
+    location_Logistic = seq(-1, 1, length=parameterLen); 
+    scale_Logistic = seq(0.01, 10, length=parameterLen)
+    
     ##### log-normal Distribution           # rlnorm(x, meanlog = meanlog, sdlog = sdlog)
-    meanlog = seq(-1, 1, length=parameterLen)
-    sdlog = seq(0.01, 10, length=parameterLen)
-
+    resLogNormal = NULL;   
+    meanlog_LogNormal = seq(-1, 1, length=parameterLen); 
+    sdlog_LogNormal = seq(0.01, 10, length=parameterLen)
+    
     ##### logweibull Distribution   
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-
-    ##### Chi-square Distribution           # rnorm(x, mean = mean, sd = sd)
-    mean = seq(-1, 1, length=parameterLen)
-    sd = seq(0.01, 10, length=parameterLen)
-
+    resLogweibull = NULL;   
+    alpha_Logweibull = seq(-1, 1, length=parameterLen); 
+    beta_Logweibull = seq(0.01, 10, length=parameterLen)
+    
+    ##### Normal Distribution           # rnorm(x, mean = mean, sd = sd)
+    resNormal = NULL;   
+    mean_Normal = seq(-1, 1, length=parameterLen);  
+    sd_Normal = seq(0.01, 10, length=parameterLen)
+    
     ##### parabolicInvertedUshaped Distribution     # rparabolicInvertedUshaped = function (n, min=-10, max=10, alpha = 0, beta = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-
+    resParabolicInvertedUshaped = NULL;     
+    alpha_ParabolicInvertedUshaped = seq(-1, 1, length=parameterLen);   
+    beta_ParabolicInvertedUshaped = seq(0.01, 10, length=parameterLen)
+    
     ##### parabolicUshaped Distribution         # rparabolicUshaped = function (n, min=-10, max=10, alpha = 1, beta = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
+    resParabolicUshaped = NULL
+    alpha_ParabolicUshaped = seq(-1, 1, length=parameterLen)
+    beta_ParabolicUshaped = seq(0.01, 10, length=parameterLen)
 
     ##### rcosine Distribution          # rrcosine = function (n, min=-10, max=10, mu = 0, sigma = 1)
-    mu = seq(-1, 1, length=parameterLen)
-    sigma = seq(0.01, 10, length=parameterLen)
+    resCosine = NULL;
+    mu_Cosine = seq(-1, 1, length=parameterLen)
+    sigma_Cosine = seq(0.01, 10, length=parameterLen)
 
     ##### Reflexted Exponential Distribution        # rrexponential = function (n, min=0.0001, max=10, alpha = 1, beta = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
+    resRexponential = NULL;
+    alpha_Rexponential = seq(-1, 1, length=parameterLen)
+    beta_Rexponential = seq(0.01, 10, length=parameterLen)
 
     ##### semielliptical Distribution           # rsemielliptical = function (n, min=-1, max=1, alpha = 0, beta = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
+    resSemielliptical = NULL
+    alpha_Semielliptical = seq(-1, 1, length=parameterLen)
+    beta_Semielliptical = seq(0.01, 10, length=parameterLen)
 
     ##### teisser Distribution          # rteisser = function (n, min=-10, max=10, alpha = 0, beta = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
+    resTeisser = NULL
+    alpha_Teisser = seq(-1, 1, length=parameterLen)
+    beta_Teisser = seq(0.01, 10, length=parameterLen)
 
     ##### unif2 Distribution            # runif
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
+    resUnif = NULL
+    alpha_Unif = seq(-1, 1, length=parameterLen)
+    beta_Unif = seq(0.01, 10, length=parameterLen)
 
     ##### 극치 분포: Gumbel 최대값 분포      # rweibull(x, shape = 1, scale = 1)
     shape = seq(0.01, 10, length=parameterLen)

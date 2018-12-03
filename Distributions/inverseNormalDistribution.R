@@ -2,7 +2,7 @@ source("colorPalette.R")
 require(rmutil)
 
 
-##### Chi-square Distribution
+##### Inverse-Normal Distribution
 ### parameter
 m = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 s = c(0.25, 0.5, 0.75, 1, 2, 4, 8)

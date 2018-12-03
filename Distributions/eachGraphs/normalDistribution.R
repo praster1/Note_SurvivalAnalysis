@@ -2,7 +2,7 @@
 source("colorPalette.R")
 
 
-##### Chi-square Distribution
+##### Normal Distribution
 ### parameter
 mean = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
 sd = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
