@@ -58,7 +58,6 @@ hlogweibull = function (x, alpha = 0, beta = 1)
 
 
 
-
 ##### Plot
 plot.logweibull_seq = function(x, alpha = 0, beta = 1, xlim=c(0, 10), ylim=c(0, 5), func="dlogweibull")
 {
@@ -128,4 +127,3 @@ plot.logweibull_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 1), func="
 
 par(mfrow = c(3, 3))
 plot.logweibull_seq(x, alpha, beta, xlim=c(min(x), max(x)), ylim=c(0, 10), func="hlogweibull")
-
