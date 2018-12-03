@@ -1,16 +1,4 @@
-source("colorPalette.R")
 require(VGAM)
-
-
-##### frechet Distribution
-### parameter
-location = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
-shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-
-### input varialbe
-x = seq(0.1, 10, length.out = 1000)
-
 
 ### 수명 분포
 dfrechet(x, location = 0, shape = 1, scale = 1)

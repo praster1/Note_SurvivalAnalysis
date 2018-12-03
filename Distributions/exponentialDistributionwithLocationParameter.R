@@ -1,15 +1,4 @@
-source("colorPalette.R")
 require(EnvStats)
-
-
-##### Exponential Distribution with Location Parameter
-### parameter
-alpha = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1)
-beta = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
-
-### input varialbe
-x = seq(0.1, 10, length.out = 1000)
-
 
 ### 수명 분포
 dlexponential = function(x, alpha=alpha, beta=beta)
