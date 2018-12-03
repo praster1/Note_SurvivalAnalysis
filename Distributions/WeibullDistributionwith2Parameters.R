@@ -1,7 +1,7 @@
 source("colorPalette.R")
 
 
-##### 극치 분포: Gumbel 최대값 분포
+##### weibull Distribution with 2 Parameters
 ### parameter
 shape = c(0.25, 0.5, 0.75, 1, 2, 4, 8)
 scale = c(0.25, 0.5, 0.75, 1, 2, 4, 8)

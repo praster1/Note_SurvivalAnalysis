@@ -265,97 +265,115 @@ ksTest = function(dataVec)
     alpha_Unif = seq(-1, 1, length=parameterLen)
     beta_Unif = seq(0.01, 10, length=parameterLen)
 
-    ##### 극치 분포: Gumbel 최대값 분포      # rweibull(x, shape = 1, scale = 1)
-    shape = seq(0.01, 10, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
+    ##### weibull Distribution with 2 Parameters
+    resWeibull = NULL;
+    shape_Weibull = seq(0.01, 10, length=parameterLen)
+    scale_Weibull = seq(0.01, 10, length=parameterLen)
     
     
     
     ### 3 parameters
     ##### dhillon1 Distribution         # rdhillon1 = function(n, min=0, max=1, alpha = 1, beta = 1, gamma = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resDhillon1 = NULL
+    alpha_Dhillon1 = seq(-1, 1, length=parameterLen)
+    beta_Dhillon1 = seq(0.01, 10, length=parameterLen)
+    gamma_Dhillon1 = seq(0.01, 10, length=parameterLen)
 
     ##### dhillon2 Distribution         # rdhillon2 = function(n, min=0.1, max=1, alpha = 1, beta = 1, gamma = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resDhillon2 = NULL
+    alpha_Dhillon2 = seq(-1, 1, length=parameterLen)
+    beta_Dhillon2 = seq(0.01, 10, length=parameterLen)
+    gamma_Dhillon2 = seq(0.01, 10, length=parameterLen)
 
     ##### weibull Distribution with c Parameters        # rdweibull = function(n, min=-10, max=1, c=1, mu=0, sigma=1)
-    mu = seq(-1, 1, length=parameterLen)
-    sigma = seq(0.01, 10, length=parameterLen)
-    c = seq(0.01, 10, length=parameterLen)
+    resDweibull = NULL
+    mu_Dweibull = seq(-1, 1, length=parameterLen)
+    sigma_Dweibull = seq(0.01, 10, length=parameterLen)
+    c_Dweibull = seq(0.01, 10, length=parameterLen)
 
     ##### frechet Distribution          # rfrechet(x, location = 0, shape = 1, scale = 1)
-    location = seq(-1, 1, length=parameterLen)
-    shape = seq(0.01, 10, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
+    resFrechet = NULL
+    location_Frechet = seq(-1, 1, length=parameterLen)
+    shape_Frechet = seq(0.01, 10, length=parameterLen)
+    scale_Frechet = seq(0.01, 10, length=parameterLen)
 
     ##### lfrechet Distribution         # rlfrechet = function (n, min=0.1, max=10, location = 0, shape = 1, scale = 1)
-    location = seq(-1, 1, length=parameterLen)
-    shape = seq(0.01, 10, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
+    resLfrechet = NULL
+    location_Lfrechet = seq(-1, 1, length=parameterLen)
+    shape_Lfrechet = seq(0.01, 10, length=parameterLen)
+    scale_Lfrechet = seq(0.01, 10, length=parameterLen)
 
     ##### Gamma Distribution with Location Parameters       # rgamma3 = function(x, shape=shape, scale=scale, location=location)
-    location = seq(-1, 1, length=parameterLen)
-    shape = seq(0.01, 10, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
+    resGamma3 = NULL
+    location_Gamma3 = seq(-1, 1, length=parameterLen)
+    shape_Gamma3 = seq(0.01, 10, length=parameterLen)
+    scale_Gamma3 = seq(0.01, 10, length=parameterLen)
 
     ##### glomax Distribution             # rglomax = function (n, min=0.0001, max=1, alpha = 1, beta = 1, gamma = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = c(-1, -0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1)
+    resGlomax = NULL
+    alpha_Glomax = seq(-1, 1, length=parameterLen)
+    beta_Glomax = seq(0.01, 10, length=parameterLen)
+    gamma_Glomax = seq(-1, 1, length=parameterLen)
 
     ##### Gompertz-Makeham Distribution         # rgompertzmakeham = function (n, min=0.0001, max=1, alpha = 1, beta = 1, gamma = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resGompertzmakeham = NULL
+    alpha_Gompertzmakeham = seq(-1, 1, length=parameterLen)
+    beta_Gompertzmakeham = seq(0.01, 10, length=parameterLen)
+    gamma_Gompertzmakeham = seq(0.01, 10, length=parameterLen)
     
     ##### Hjorth Distribution               # rhjorth(x, m = 1, s = 1, f = 1)
-    delta = seq(0.01, 10, length=parameterLen)	# m (delta)
-    beta = seq(0.01, 10, length=parameterLen)		# s (beta)
-    theta = seq(0.01, 10, length=parameterLen)	# f (theta)
+    resHjorth = NULL
+    delta_Hjorth = seq(0.01, 10, length=parameterLen)	# m (delta)
+    beta_Hjorth = seq(0.01, 10, length=parameterLen)		# s (beta)
+    theta_Hjorth = seq(0.01, 10, length=parameterLen)	# f (theta)
 
     ##### weibull Distribution with gamma Parameters        # rinverseweibull = function (n, min=0.1, max=10, alpha = 0, beta = 1, gamma = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resInverseweibull = NULL
+    alpha_Inverseweibull = seq(-1, 1, length=parameterLen)
+    beta_Inverseweibull = seq(0.01, 10, length=parameterLen)
+    gamma_Inverseweibull = seq(0.01, 10, length=parameterLen)
 
     ##### loglogistic Distribution          # rloglogistic = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resLoglogistic = NULL
+    alpha_Loglogistic = seq(-1, 1, length=parameterLen)
+    beta_Loglogistic = seq(0.01, 10, length=parameterLen)
+    gamma_Loglogistic = seq(0.01, 10, length=parameterLen)
 
     ##### lomax Distribution              # rlomax = function (n, min=0.0001, max=1, alpha = 1, beta = 1, gamma = 1) 
+    resLomax = NULL
     alpha = seq(-1, 1, length=parameterLen)
     beta = seq(0.01, 10, length=parameterLen)
     gamma = seq(0.01, 10, length=parameterLen)
 
-    ##### Gamma Distribution with alpha Parameters          # rmuth = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 1) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = c(0.25, 0.5, 0.75, 1)
+    ##### Muth Distribution          # rmuth = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 1) 
+    resMuth = NULL;
+    alpha_Muth = seq(-1, 1, length=parameterLen)
+    beta_Muth = seq(0.01, 10, length=parameterLen)
+    gamma_Muth = c(0.25, 0.5, 0.75, 1)
 
     ##### Pareto Distribution of the first kind     # rpareto1 = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 2)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resPareto1 = NULL;
+    alpha_Pareto1 = seq(-1, 1, length=parameterLen)
+    beta_Pareto1 = seq(0.01, 10, length=parameterLen)
+    gamma_Pareto1 = seq(0.01, 10, length=parameterLen)
 
-    ##### Pareto Distribution of the first kind     # rpower = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 2) 
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    ##### Power Distribution     # rpower = function (n, min=0.0001, max=10, alpha = 1, beta = 1, gamma = 2) 
+    resPower = NULL;
+    alpha_Power = seq(-1, 1, length=parameterLen)
+    beta_Power = seq(0.01, 10, length=parameterLen)
+    gamma_Power = seq(0.01, 10, length=parameterLen)
 
     ##### weibull Distribution with gamma Parameters        # rreflectedweibull = function (n, min=-10, max=10, alpha = 0, beta = 1, gamma = 1)
-    alpha = seq(-1, 1, length=parameterLen)
-    beta = seq(0.01, 10, length=parameterLen)
-    gamma = seq(0.01, 10, length=parameterLen)
+    resReflectedweibull = NULL
+    alpha_Reflectedweibull = seq(-1, 1, length=parameterLen)
+    beta_Reflectedweibull = seq(0.01, 10, length=parameterLen)
+    gamma_Reflectedweibull = seq(0.01, 10, length=parameterLen)
 
     ##### weibull Distribution with Location Parameters         # rweibull3 = function(x, shape=shape, scale=scale, location=location)
-    shape = seq(0.01, 10, length=parameterLen)
-    scale = seq(0.01, 10, length=parameterLen)
-    location = seq(0.01, 10, length=parameterLen)
+    resWeibull3 = NULL
+    shape_Weibull3 = seq(0.01, 10, length=parameterLen)
+    scale_Weibull3 = seq(0.01, 10, length=parameterLen)
+    location_Weibull3 = seq(0.01, 10, length=parameterLen)
 
     
     
