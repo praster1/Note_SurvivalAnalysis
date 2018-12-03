@@ -455,24 +455,24 @@ ksTest = function(dataVec)
             resCosine[[i]][[j]] = ks.test(dataVec, randVec)
             print(paste("Test with Cosine Distribution : i = ", i, " / ", length(mu_Cosine), "     j = ", j, " / ", length(sigma_Cosine), sep=""))
 
+            # Exponential Distribution with Location Parameter
+			randVec = rlexponential(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Lexponential[i], beta=beta_Lexponential[j])
+            resLexponential[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Exponential Distribution with Location Parameter : i = ", i, " / ", length(alpha_Lexponential), "     j = ", j, " / ", length(beta_Lexponential), sep=""))
+            
+			# 극치 분포: Gumbel 최대값 분포
+			randVec = rgumbel_max(dataLen, min=min(dataVec), max=max(dataVec), scale=location_Gumbel_max[i], location=scale_Gumbel_max[j])
+            resGumbel_max[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Gumbel 최대값 분포 : i = ", i, " / ", length(location_Gumbel_max), "     j = ", j, " / ", length(scale_Gumbel_max), sep=""))
+			
+			# 극치 분포: Gumbel 최소값 분포
+			randVec = rgumbel_min(dataLen, min=min(dataVec), max=max(dataVec), scale=location_Gumbel_min[i], location=scale_Gumbel_min[j])
+            resGumbel_min[[i]][[j]] = ks.test(dataVec, randVec)
+            print(paste("Test with Gumbel 최소값 분포 : i = ", i, " / ", length(location_Gumbel_min), "     j = ", j, " / ", length(scale_Gumbel_min), sep=""))
+		  
+		  
             
             
-            
-            
-            # Exponential Distribution with Location Parameter      # rlexponential = function(n, min=0.1, max=1, alpha = 1, beta = 1)
-            resLexponential = NULL;
-            alpha_Lexponential = seq(-1, 1, length=parameterLen);   
-            beta_Lexponential = seq(0.01, 10, length=parameterLen)
-            
-            # 극치 분포: Gumbel 최대값 분포          # rgumbel_max = function (n, min=-10, max=10, scale = 1, location = 0) 
-            resGumbel_max = NULL;  
-            location_Gumbel_max = seq(-1, 1, length=parameterLen); 
-            scale_Gumbel_max = seq(0.01, 10, length=parameterLen)
-            
-            # 극치 분포: Gumbel 최소값 분포          # rgumbel_min = function (n, min=-10, max=10, scale = 1, location = 0) 
-            resGumbel_min = NULL; 
-            location_Gumbel_min = seq(-1, 1, length=parameterLen);  
-            scale_Gumbel_min = seq(0.01, 10, length=parameterLen)
             
             # F Distribution                # rf(x, df1 = df1, df2 = df2)
             resF = NULL;   
