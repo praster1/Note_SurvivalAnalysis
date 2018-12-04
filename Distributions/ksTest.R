@@ -544,9 +544,9 @@ ksTest = function(dataVec = NULL)
 				resHjorth[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 			
 				# Weibull Distribution with gamma Parameters
-				print(paste("Test with Weibull Distribution with gamma Parameters : i = ", i, " / ", length(alpha_Inverseweibull), "     j = ", j, " / ", length(beta_Inverseweibull), "     k = ", k, " / ", length(gamma_Inverseweibull), sep=""))
-                randVec = rinverseweibull(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Inverseweibull[i], beta=beta_Inverseweibull[j], gamma=gamma_Inverseweibull[k])
-				resInverseweibull[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with Weibull Distribution with gamma Parameters : i = ", i, " / ", length(alpha_Inverseweibull), "     j = ", j, " / ", length(beta_Inverseweibull), "     k = ", k, " / ", length(gamma_Inverseweibull), sep=""))
+                # randVec = rinverseweibull(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Inverseweibull[i], beta=beta_Inverseweibull[j], gamma=gamma_Inverseweibull[k])
+				# resInverseweibull[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# loglogistic Distribution
 				print(paste("Test with log-Logistic Distribution : i = ", i, " / ", length(alpha_Loglogistic), "     j = ", j, " / ", length(beta_Loglogistic), "     k = ", k, " / ", length(gamma_Loglogistic), sep=""))
