@@ -547,14 +547,14 @@ ksTest = function(dataVec = NULL, parameterLen = 100)
 				# resInverseweibull[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# loglogistic Distribution
-				print(paste("Test with log-Logistic Distribution : i = ", i, " / ", length(alpha_Loglogistic), "     j = ", j, " / ", length(beta_Loglogistic), "     k = ", k, " / ", length(gamma_Loglogistic), sep=""))
-				randVec = rloglogistic(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Loglogistic[i], beta=beta_Loglogistic[j], gamma=gamma_Loglogistic[k])
-				resLoglogistic[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with log-Logistic Distribution : i = ", i, " / ", length(alpha_Loglogistic), "     j = ", j, " / ", length(beta_Loglogistic), "     k = ", k, " / ", length(gamma_Loglogistic), sep=""))
+				# randVec = rloglogistic(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Loglogistic[i], beta=beta_Loglogistic[j], gamma=gamma_Loglogistic[k])
+				# resLoglogistic[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# lomax Distribution
-				print(paste("Test with Lomax Distribution : i = ", i, " / ", length(alpha_Lomax), "     j = ", j, " / ", length(beta_Lomax), "     k = ", k, " / ", length(gamma_Lomax), sep=""))
-				randVec = rlomax(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Lomax[i], beta=beta_Lomax[j], gamma=gamma_Lomax[k])
-				resLomax[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with Lomax Distribution : i = ", i, " / ", length(alpha_Lomax), "     j = ", j, " / ", length(beta_Lomax), "     k = ", k, " / ", length(gamma_Lomax), sep=""))
+				# randVec = rlomax(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Lomax[i], beta=beta_Lomax[j], gamma=gamma_Lomax[k])
+				# resLomax[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# Muth Distribution
 				# print(paste("Test with Muth Distribution : i = ", i, " / ", length(alpha_Muth), "     j = ", j, " / ", length(beta_Muth), "     k = ", k, " / ", length(gamma_Muth), sep=""))
@@ -562,14 +562,14 @@ ksTest = function(dataVec = NULL, parameterLen = 100)
 				# resMuth[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 
                 # Pareto Distribution of the first kind
-				print(paste("Test with Pareto Distribution of the first kind : i = ", i, " / ", length(alpha_Pareto1), "     j = ", j, " / ", length(beta_Pareto1), "     k = ", k, " / ", length(gamma_Pareto1), sep=""))
-				randVec = rpareto1(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Pareto1[i], beta=beta_Pareto1[j], gamma=gamma_Pareto1[k])
-				resPareto1[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with Pareto Distribution of the first kind : i = ", i, " / ", length(alpha_Pareto1), "     j = ", j, " / ", length(beta_Pareto1), "     k = ", k, " / ", length(gamma_Pareto1), sep=""))
+				# randVec = rpareto1(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Pareto1[i], beta=beta_Pareto1[j], gamma=gamma_Pareto1[k])
+				# resPareto1[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 
                 # Power Distribution
-				print(paste("Test with Power Distribution : i = ", i, " / ", length(alpha_Power), "     j = ", j, " / ", length(beta_Power), "     k = ", k, " / ", length(gamma_Power), sep=""))
-				randVec = rpower(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Power[i], beta=beta_Power[j], gamma=gamma_Power[k])
-				resPower[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with Power Distribution : i = ", i, " / ", length(alpha_Power), "     j = ", j, " / ", length(beta_Power), "     k = ", k, " / ", length(gamma_Power), sep=""))
+				# randVec = rpower(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Power[i], beta=beta_Power[j], gamma=gamma_Power[k])
+				# resPower[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 
 				# Weibull Distribution with gamma Parameters
 				# print(paste("Test with Weibull Distribution with gamma Parameters : i = ", i, " / ", length(alpha_Reflectedweibull), "     j = ", j, " / ", length(beta_Reflectedweibull), "     k = ", k, " / ", length(gamma_Reflectedweibull), sep=""))
