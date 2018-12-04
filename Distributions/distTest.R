@@ -80,4 +80,4 @@ source("_VshapedDistribution.R")
 
 
 source("ksTest.R")
-res = ksTest(rnorm(1000))
+res = ksTest(rnorm(1000), parameterLen=10)

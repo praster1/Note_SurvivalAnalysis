@@ -1,4 +1,4 @@
-ksTest = function(dataVec = NULL)
+ksTest = function(dataVec = NULL, parameterLen = 100)
 {
 	if(is.null(dataVec))
 	{
@@ -8,8 +8,6 @@ ksTest = function(dataVec = NULL)
     normalization = function(x)	{	(x-min(x))/(max(x)-min(x));	}
     dataVec = normalization(dataVec) + abs(rnorm(dataVec, 0, 0.0001))
     dataLen = length(dataVec)
-    
-    parameterLen = 100
     
     ### 1 parameter
     # Chi-square Distribution       # rchisq(x, df = df)
@@ -446,9 +444,9 @@ ksTest = function(dataVec = NULL)
             resLogNormal[[paste(i)]][[paste(j)]] = ks.test(dataVec, randVec)
             
 			# logweibull Distribution   
-			print(paste("Test with Log-Weibull Distribution : i = ", i, " / ", length(alpha_Logweibull), "     j = ", j, " / ", length(beta_Logweibull), sep=""))
-			randVec = rlogweibull(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Logweibull[i], beta=beta_Logweibull[j])
-            resLogweibull[[paste(i)]][[paste(j)]] = ks.test(dataVec, randVec)
+			# print(paste("Test with Log-Weibull Distribution : i = ", i, " / ", length(alpha_Logweibull), "     j = ", j, " / ", length(beta_Logweibull), sep=""))
+			# randVec = rlogweibull(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Logweibull[i], beta=beta_Logweibull[j])
+            # resLogweibull[[paste(i)]][[paste(j)]] = ks.test(dataVec, randVec)
             
 			# Normal Distribution
 			print(paste("Test with Normal Distribution : i = ", i, " / ", length(mean_Normal), "     j = ", j, " / ", length(sd_Normal), sep=""))
@@ -534,9 +532,9 @@ ksTest = function(dataVec = NULL)
 				# resGlomax[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# Gompertz-Makeham Distribution
-				print(paste("Test with Gompertz-Makeham Distribution : i = ", i, " / ", length(alpha_Gompertzmakeham), "     j = ", j, " / ", length(beta_Gompertzmakeham), "     k = ", k, " / ", length(gamma_Gompertzmakeham), sep=""))
-				randVec = rgompertzmakeham(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Gompertzmakeham[i], beta=beta_Gompertzmakeham[j], gamma=gamma_Gompertzmakeham[k])
-				resGompertzmakeham[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
+				# print(paste("Test with Gompertz-Makeham Distribution : i = ", i, " / ", length(alpha_Gompertzmakeham), "     j = ", j, " / ", length(beta_Gompertzmakeham), "     k = ", k, " / ", length(gamma_Gompertzmakeham), sep=""))
+				# randVec = rgompertzmakeham(dataLen, min=min(dataVec), max=max(dataVec), alpha=alpha_Gompertzmakeham[i], beta=beta_Gompertzmakeham[j], gamma=gamma_Gompertzmakeham[k])
+				# resGompertzmakeham[[paste(i)]][[paste(j)]][[paste(k)]] = ks.test(dataVec, randVec)
 				
 				# Hjorth Distribution
 				print(paste("Test with Hjorth Distribution : i = ", i, " / ", length(delta_Hjorth), "     j = ", j, " / ", length(beta_Hjorth), "     k = ", k, " / ", length(theta_Hjorth), sep=""))
